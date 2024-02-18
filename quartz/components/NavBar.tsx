@@ -18,8 +18,8 @@ const NavBar: QuartzComponent = (props: QuartzComponentProps) => {
 
       <ul>
         <li><a href={baseDir}>📙블로그</a></li>
-        <li><a href="/About-Me">🙍‍♂️이력</a></li>
-        <li><a href="/Project">📂프로젝트</a></li>
+        <li><a href={`${baseDir}/About-Me`}>🙍‍♂️이력</a></li>
+        <li><a href={`${baseDir}/Project`}>📂프로젝트</a></li>
       </ul>
       <Darkmode {...props} children={props.children}/>
     </nav>

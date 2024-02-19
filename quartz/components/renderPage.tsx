@@ -9,7 +9,7 @@ import { Root, Element, ElementContent } from "hast"
 import { GlobalConfiguration } from "../cfg"
 import { i18n } from "../i18n"
 import { QuartzPluginData } from "../plugins/vfile"
-
+import GiscusCommentConstructor from "./GiscusComment"
 
 interface RenderComponents {
   head: QuartzComponent
@@ -47,6 +47,13 @@ export function pageResources(
         src: joinSegments(baseDir, "postscript.js"),
         loadTime: "afterDOMReady",
         moduleType: "module",
+        contentType: "external",
+      },
+
+      // giscus comment
+      {
+        src: "https://giscus.app/client.js",
+        loadTime: "beforeDOMReady",
         contentType: "external",
       },
     ],
@@ -218,6 +225,9 @@ export function renderPage(
     </div>
   )
 
+  const GiscusComment = GiscusCommentConstructor()
+  const param = slug.split("/")
+  const lastParam = param[param.length - 1]
 
   const lang = componentData.frontmatter?.lang ?? cfg.locale?.split("-")[0] ?? "en"
   const doc = (
@@ -226,7 +236,6 @@ export function renderPage(
     <body data-slug={slug}>
 
     <div id="quartz-root" className="page">
-      {/*<div className="header">header</div>*/}
       <Header {...componentData}>
         {header.map((HeaderComponent) => (
           <HeaderComponent {...componentData} />
@@ -237,14 +246,20 @@ export function renderPage(
         {/*{LeftComponent}*/}
         <div className="center">
           <div className="page-header">
-
             <div className="popover-hint">
               {beforeBody.map((BodyComponent) => (
-                <BodyComponent {...componentData} />
+                <div>
+                  {BodyComponent.displayName}
+                  <BodyComponent {...componentData} />
+                </div>
               ))}
             </div>
           </div>
           <Content {...componentData} />
+
+          {lastParam !== "index" && lastParam !== "About-Me" && lastParam !== "Project" &&
+            <GiscusComment {...componentData} />
+          }
         </div>
         {RightComponent}
       </Body>
@@ -254,6 +269,7 @@ export function renderPage(
     {pageResources.js
       .filter((resource) => resource.loadTime === "afterDOMReady")
       .map((res) => JSResourceToScriptElement(res))}
+    {/*Giscus Comment script 태그는 JSResourceToScriptElement 참고*/}
     </html>
   )
 

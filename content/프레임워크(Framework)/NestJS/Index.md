@@ -1,7 +1,7 @@
 ---
 longform:
   format: scenes
-  title: 언어
+  title: NestJS
   workflow: Default Workflow
   sceneFolder: /
   scenes: []

@@ -31,8 +31,14 @@ header > nav {
       display: none;
     }
 
-    li a {
-      font-size: 1.2rem;
+    li {
+      border: 1px solid var(--lightgray);
+      padding: 5px;
+      border-radius: 5px;
+
+      a {
+        font-size: 1.2rem;
+      }
     }
   }
 

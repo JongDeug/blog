@@ -1,7 +1,7 @@
 ---
 longform:
   format: scenes
-  title: 프레임워크
+  title: Javascript
   workflow: Default Workflow
   sceneFolder: /
   scenes: []

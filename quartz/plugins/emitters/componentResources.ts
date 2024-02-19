@@ -77,6 +77,7 @@ function addGlobalPageResources(
   const cfg = ctx.cfg.configuration
   const reloadScript = ctx.argv.serve
 
+
   // popovers
   if (cfg.enablePopovers) {
     componentResources.afterDOMLoaded.push(popoverScript)

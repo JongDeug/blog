@@ -4,7 +4,7 @@ import * as Plugin from "./quartz/plugins"
 const config: QuartzConfig = {
   configuration: {
     pageTitle: "Jongdeug",
-    enableSPA: true,
+    enableSPA: false, // spa 제거 해야지, comments 남길 수 있음!
     enablePopovers: true,
     analytics: {
       provider: "plausible",
@@ -37,8 +37,8 @@ const config: QuartzConfig = {
           gray: "#646464",
           darkgray: "#d4d4d4",
           dark: "#ebebec",
-          secondary: "#005249",
-          tertiary: "#4B8178",
+          secondary: "#e5e5e5",
+          tertiary: "#b8b8b8",
           highlight: "rgba(143, 159, 169, 0.15)",
         },
       },

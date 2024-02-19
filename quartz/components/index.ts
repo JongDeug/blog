@@ -49,5 +49,5 @@ export {
 
   // 추가
   NavBar,
-  GiscusComment
+  GiscusComment,
 }

@@ -5,7 +5,6 @@ export type JSResource = {
   loadTime: "beforeDOMReady" | "afterDOMReady"
   moduleType?: "module"
   spaPreserve?: boolean
-
 } & (
   | {
       src: string
@@ -23,21 +22,22 @@ export function JSResourceToScriptElement(resource: JSResource, preserve?: boole
   if (resource.contentType === "external") {
     if (resource.src === "https://giscus.app/client.js") {
       return (
-        <script key={resource.src}
-                src={resource.src}
-                data-repo="JongDeug/blog"
-                data-repo-id="R_kgDOLUUAwA"
-                data-category="[ENTER CATEGORY NAME HERE]"
-                data-category-id="[ENTER CATEGORY ID HERE]"
-                data-mapping="pathname"
-                data-strict="0"
-                data-reactions-enabled="1"
-                data-emit-metadata="0"
-                data-input-position="bottom"
-                data-theme="light"
-                data-lang="ko"
-                crossOrigin="anonymous"
-                async
+        <script
+          key={resource.src}
+          src={resource.src}
+          data-repo="JongDeug/blog"
+          data-repo-id="R_kgDOLUUAwA"
+          data-category="[ENTER CATEGORY NAME HERE]"
+          data-category-id="[ENTER CATEGORY ID HERE]"
+          data-mapping="pathname"
+          data-strict="0"
+          data-reactions-enabled="1"
+          data-emit-metadata="0"
+          data-input-position="bottom"
+          data-theme="light"
+          data-lang="ko"
+          crossOrigin="anonymous"
+          async
         />
       )
     }
@@ -57,7 +57,6 @@ export function JSResourceToScriptElement(resource: JSResource, preserve?: boole
     )
   }
 }
-
 
 export interface StaticResources {
   css: string[]

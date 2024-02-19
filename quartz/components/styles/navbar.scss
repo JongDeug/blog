@@ -9,7 +9,7 @@ header > nav {
   border-bottom: 1px solid var(--lightgray);
 
   @media all and (max-width: $fullPageWidth) {
-    border: 0
+    border: 0;
   }
 
   .page-title {

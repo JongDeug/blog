@@ -232,44 +232,43 @@ export function renderPage(
   const lang = componentData.frontmatter?.lang ?? cfg.locale?.split("-")[0] ?? "en"
   const doc = (
     <html lang={lang}>
-    <Head {...componentData} />
-    <body data-slug={slug}>
+      <Head {...componentData} />
+      <body data-slug={slug}>
+        <div id="quartz-root" className="page">
+          <Header {...componentData}>
+            {header.map((HeaderComponent) => (
+              <HeaderComponent {...componentData} />
+            ))}
+          </Header>
 
-    <div id="quartz-root" className="page">
-      <Header {...componentData}>
-        {header.map((HeaderComponent) => (
-          <HeaderComponent {...componentData} />
-        ))}
-      </Header>
-
-      <Body {...componentData}>
-        {/*{LeftComponent}*/}
-        <div className="center">
-          <div className="page-header">
-            <div className="popover-hint">
-              {beforeBody.map((BodyComponent) => (
-                <div>
-                  {BodyComponent.displayName}
-                  <BodyComponent {...componentData} />
+          <Body {...componentData}>
+            {/*{LeftComponent}*/}
+            <div className="center">
+              <div className="page-header">
+                <div className="popover-hint">
+                  {beforeBody.map((BodyComponent) => (
+                    <div>
+                      {BodyComponent.displayName}
+                      <BodyComponent {...componentData} />
+                    </div>
+                  ))}
                 </div>
-              ))}
-            </div>
-          </div>
-          <Content {...componentData} />
+              </div>
+              <Content {...componentData} />
 
-          {lastParam !== "index" && lastParam !== "About-Me" && lastParam !== "Project" &&
-            <GiscusComment {...componentData} />
-          }
+              {lastParam !== "index" && lastParam !== "About-Me" && lastParam !== "Project" && (
+                <GiscusComment {...componentData} />
+              )}
+            </div>
+            {RightComponent}
+          </Body>
+          <Footer {...componentData} />
         </div>
-        {RightComponent}
-      </Body>
-      <Footer {...componentData} />
-    </div>
-    </body>
-    {pageResources.js
-      .filter((resource) => resource.loadTime === "afterDOMReady")
-      .map((res) => JSResourceToScriptElement(res))}
-    {/*Giscus Comment script 태그는 JSResourceToScriptElement 참고*/}
+      </body>
+      {pageResources.js
+        .filter((resource) => resource.loadTime === "afterDOMReady")
+        .map((res) => JSResourceToScriptElement(res))}
+      {/*Giscus Comment script 태그는 JSResourceToScriptElement 참고*/}
     </html>
   )
 

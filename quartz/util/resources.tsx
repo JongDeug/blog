@@ -27,8 +27,8 @@ export function JSResourceToScriptElement(resource: JSResource, preserve?: boole
           src={resource.src}
           data-repo="JongDeug/blog"
           data-repo-id="R_kgDOLUUAwA"
-          data-category="[ENTER CATEGORY NAME HERE]"
-          data-category-id="[ENTER CATEGORY ID HERE]"
+          data-category="General"
+          data-category-id="DIC_kwDOLUUAwM4CdV1Q"
           data-mapping="pathname"
           data-strict="0"
           data-reactions-enabled="1"

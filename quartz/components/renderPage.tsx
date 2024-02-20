@@ -256,7 +256,7 @@ export function renderPage(
               </div>
               <Content {...componentData} />
 
-              {lastParam !=="index" && lastParam !== "Index" && lastParam !== "About-Me" && lastParam !== "Project" && (
+              {slug !=="404" && lastParam !=="index" && lastParam !== "Index" && lastParam !== "About-Me" && lastParam !== "Project" && (
                 <GiscusComment {...componentData} />
               )}
             </div>

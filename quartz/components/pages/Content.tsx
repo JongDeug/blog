@@ -6,7 +6,7 @@ function Content({ fileData, tree }: QuartzComponentProps) {
   const classes: string[] = fileData.frontmatter?.cssclasses ?? []
   const classString = ["popover-hint", ...classes].join(" ")
   return (
-    <article class={classString} google-site-verification="IdKNSYovLknLuzuPQg8ntuCHMCDHq_dB4ToYqaFJRts">
+    <article class={classString}>
       {content}
     </article>
   )

@@ -283,7 +283,6 @@ export function renderPage(
       data-lang="ko"
       crossOrigin="anonymous"
       async />
-  }
 </html>
 )
 

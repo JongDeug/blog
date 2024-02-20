@@ -1,9 +1,10 @@
 ---
 longform:
   format: scenes
-  title: IT일기
+  title: 자료구조
   workflow: Default Workflow
   sceneFolder: /
   scenes: []
   ignoredFiles: []
+title: 자료구조
 ---

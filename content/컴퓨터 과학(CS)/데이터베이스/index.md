@@ -1,9 +1,10 @@
 ---
 longform:
   format: scenes
-  title: 운영체제
+  title: 데이터베이스
   workflow: Default Workflow
   sceneFolder: /
   scenes: []
   ignoredFiles: []
+title: 데이터베이스
 ---

@@ -1,9 +1,10 @@
 ---
 longform:
   format: scenes
-  title: Git
+  title: 데브옵스(DevOps)
   workflow: Default Workflow
   sceneFolder: /
   scenes: []
   ignoredFiles: []
+title: 데브옵스(DevOps)
 ---

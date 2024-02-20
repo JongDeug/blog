@@ -1,9 +1,10 @@
 ---
 longform:
   format: scenes
-  title: 자료구조
+  title: Git
   workflow: Default Workflow
   sceneFolder: /
   scenes: []
   ignoredFiles: []
+title: Git
 ---

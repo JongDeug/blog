@@ -11,4 +11,5 @@ longform:
   ignoredFiles:
     - 블로그 운영 이유
     - 무제 파일
+title: 블로그 생성기
 ---

@@ -1,9 +1,10 @@
 ---
 longform:
   format: scenes
-  title: Web
+  title: 운영체제
   workflow: Default Workflow
   sceneFolder: /
   scenes: []
   ignoredFiles: []
+title: 운영체제
 ---

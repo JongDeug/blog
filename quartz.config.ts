@@ -6,9 +6,7 @@ const config: QuartzConfig = {
     pageTitle: "Jongdeug",
     enableSPA: false, // spa 제거 해야지, comments 남길 수 있음!
     enablePopovers: true,
-    analytics: {
-      provider: "plausible",
-    },
+    analytics: { provider: "umami", host: "31dc56ff-2048-4336-8456-902f498caa19", websiteId: "05bec5f4-b192-4878-8cc4-cd37196bca1b" },
     locale: "ko-KR",
     baseUrl: "jongdeug.github.io/blog",
     ignorePatterns: ["private", "templates", ".obsidian"],

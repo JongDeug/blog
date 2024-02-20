@@ -51,11 +51,11 @@ export function pageResources(
       },
 
       // giscus comment
-      {
-        src: "https://giscus.app/client.js",
-        loadTime: "beforeDOMReady",
-        contentType: "external",
-      },
+      // {
+      //   src: "https://giscus.app/client.js",
+      //   loadTime: "beforeDOMReady",
+      //   contentType: "external",
+      // },
     ],
   }
 }
@@ -282,7 +282,7 @@ export function renderPage(
       data-theme="light"
       data-lang="ko"
       crossOrigin="anonymous"
-      async />
+      async></script>
 </html>
 )
 

@@ -36,8 +36,6 @@ export default (() => {
         <link rel="icon" href={iconPath} />
         <meta name="description" content={description} />
         <meta name="generator" content="Quartz" />
-        {/*구글 seo*/}
-        <meta name="google-site-verification" content="bTNWXVl5fZtKsIOmBKpPkRAcgmg_2XvEhTMWBV4htnA" />
         {css.map((href) => (
           <link key={href} href={href} rel="stylesheet" type="text/css" spa-preserve />
         ))}

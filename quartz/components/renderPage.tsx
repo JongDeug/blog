@@ -258,9 +258,8 @@ export function renderPage(
             </div>
           </div>
           <Content {...componentData} />
-
           {/*Giscus 제어*/}
-          {firstParam !== "About-Me" && firstParam !== "Projects" && firstParam !== "index" && firstParam !== "404" && firstParam !== "tags" &&
+          {lastParam !== "index" && firstParam !== "About-Me" && firstParam !== "Projects" && firstParam !== "index" && firstParam !== "404" && firstParam !== "tags" &&
             (<GiscusComment {...componentData} />)
           }
         </div>
@@ -270,7 +269,7 @@ export function renderPage(
     </div>
     </body>
 
-    {/*giscus script는 JSResourceToScriptElement 참고*/}
+    {/*giscus script 태그는 JSResourceToScriptElement 참고*/}
     {pageResources.js
       .filter((resource) => resource.loadTime === "afterDOMReady")
       .map((res) => JSResourceToScriptElement(res))}

@@ -21,7 +21,7 @@ const NavBar: QuartzComponent = (props: QuartzComponentProps) => {
           <a href={baseUrl}>📙 Blog</a>
         </li>
         <li>
-          <a href={`${baseUrl}/Project`}>📂 Projects</a>
+          <a href={`${baseUrl}/Projects`}>📂 Projects</a>
         </li>
         <li>
           <a href={`${baseUrl}/About-Me`}>🔎 About</a>

@@ -4,13 +4,12 @@ import { i18n } from "../i18n"
 import { classNames } from "../util/lang"
 import style from "../components/styles/navbar.scss"
 import DarkmodeConstructor from "./Darkmode"
-import config from "../../quartz.config"
 
 const NavBar: QuartzComponent = (props: QuartzComponentProps) => {
   const title = props.cfg?.pageTitle ?? i18n(props.cfg.locale).propertyDefaults.title
   // const baseDir = pathToRoot(props.fileData.slug!)
   const Darkmode = DarkmodeConstructor()
-  const baseUrl = props.cfg.baseUrl
+  const baseUrl = `https://${props.cfg.baseUrl}`
   return (
     <nav>
       <h1 className={classNames(props.displayClass, "page-title")}>

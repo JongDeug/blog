@@ -3,7 +3,7 @@ import { QuartzComponent, QuartzComponentProps } from "./types"
 import HeaderConstructor from "./Header"
 import BodyConstructor from "./Body"
 import { JSResourceToScriptElement, StaticResources } from "../util/resources"
-import { clone, FullSlug, RelativeURL, joinSegments, normalizeHastElement } from "../util/path"
+import { clone, FullSlug, RelativeURL, joinSegments, normalizeHastElement, pathToRoot } from "../util/path"
 import { visit } from "unist-util-visit"
 import { Root, Element, ElementContent } from "hast"
 import { GlobalConfiguration } from "../cfg"
@@ -50,12 +50,12 @@ export function pageResources(
         contentType: "external",
       },
 
-      // giscus comment
-      // {
-      //   src: "https://giscus.app/client.js",
-      //   loadTime: "beforeDOMReady",
-      //   contentType: "external",
-      // },
+      // giscus comment 반드시 beforeDOM
+      {
+        src: "https://giscus.app/client.js",
+        loadTime: "beforeDOMReady",
+        contentType: "external",
+      },
     ],
   }
 }
@@ -229,12 +229,8 @@ export function renderPage(
   const GiscusComment = GiscusCommentConstructor()
   const param = slug.split("/")
   const lastParam = param[param.length - 1]
-  let isTagParam
-  if (param.length >= 2 && param[0] === "tags") {
-    isTagParam = true
-  } else {
-    isTagParam = false
-  }
+  const firstParam = param[0]
+
 
   const lang = componentData.frontmatter?.lang ?? cfg.locale?.split("-")[0] ?? "en"
   const doc = (
@@ -263,33 +259,21 @@ export function renderPage(
           </div>
           <Content {...componentData} />
 
-          {!isTagParam && slug !== "404" && lastParam !== "index" && lastParam !== "Index" && lastParam !== "About-Me" && lastParam !== "Project" && (
-            <GiscusComment {...componentData} />
-          )}
+          {/*Giscus 제어*/}
+          {firstParam !== "About-Me" && firstParam !== "Projects" && firstParam !== "index" && firstParam !== "404" && firstParam !== "tags" &&
+            (<GiscusComment {...componentData} />)
+          }
         </div>
         {RightComponent}
       </Body>
       <Footer {...componentData} />
     </div>
     </body>
+
+    {/*giscus script는 JSResourceToScriptElement 참고*/}
     {pageResources.js
       .filter((resource) => resource.loadTime === "afterDOMReady")
       .map((res) => JSResourceToScriptElement(res))}
-    <script
-      src="https://giscus.app/client.js"
-      data-repo="JongDeug/blog"
-      data-repo-id="R_kgDOLUUAwA"
-      data-category="General"
-      data-category-id="DIC_kwDOLUUAwM4CdV1Q"
-      data-mapping="pathname"
-      data-strict="0"
-      data-reactions-enabled="1"
-      data-emit-metadata="0"
-      data-input-position="bottom"
-      data-theme="light"
-      data-lang="ko"
-      crossOrigin="anonymous"
-      async></script>
     </html>
   )
 

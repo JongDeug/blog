@@ -7,22 +7,43 @@ export type JSResource = {
   spaPreserve?: boolean
 } & (
   | {
-      src: string
-      contentType: "external"
-    }
+  src: string
+  contentType: "external"
+}
   | {
-      script: string
-      contentType: "inline"
-    }
-)
+  script: string
+  contentType: "inline"
+}
+  )
 
 export function JSResourceToScriptElement(resource: JSResource, preserve?: boolean): JSX.Element {
   const scriptType = resource.moduleType ?? "application/javascript"
   const spaPreserve = preserve ?? resource.spaPreserve
   if (resource.contentType === "external") {
-    return (
-      <script key={resource.src} src={resource.src} type={scriptType} spa-preserve={spaPreserve} />
-    )
+    if (resource.src === "https://giscus.app/client.js") {
+      return (
+        <script
+          key={resource.src}
+          src={resource.src}
+          data-repo="JongDeug/blog"
+          data-repo-id="R_kgDOLUUAwA"
+          data-category="General"
+          data-category-id="DIC_kwDOLUUAwM4CdV1Q"
+          data-mapping="pathname"
+          data-strict="0"
+          data-reactions-enabled="1"
+          data-emit-metadata="0"
+          data-input-position="bottom"
+          data-theme="light"
+          data-lang="ko"
+          crossOrigin="anonymous"
+          async />
+      )
+    } else {
+      return (
+        <script key={resource.src} src={resource.src} type={scriptType} spa-preserve={spaPreserve} />
+      )
+    }
   } else {
     const content = resource.script
     return (

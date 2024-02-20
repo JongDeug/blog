@@ -232,45 +232,61 @@ export function renderPage(
   const lang = componentData.frontmatter?.lang ?? cfg.locale?.split("-")[0] ?? "en"
   const doc = (
     <html lang={lang}>
-      <Head {...componentData} />
-      <body data-slug={slug}>
-        <div id="quartz-root" className="page">
-          <Header {...componentData}>
-            {header.map((HeaderComponent) => (
-              <HeaderComponent {...componentData} />
-            ))}
-          </Header>
+    <Head {...componentData} />
+    <body data-slug={slug}>
+    <div id="quartz-root" className="page">
+      <Header {...componentData}>
+        {header.map((HeaderComponent) => (
+          <HeaderComponent {...componentData} />
+        ))}
+      </Header>
 
-          <Body {...componentData}>
-            {/*{LeftComponent}*/}
-            <div className="center">
-              <div className="page-header">
-                <div className="popover-hint">
-                  {beforeBody.map((BodyComponent) => (
-                    <div>
-                      {BodyComponent.displayName}
-                      <BodyComponent {...componentData} />
-                    </div>
-                  ))}
+      <Body {...componentData}>
+        {/*{LeftComponent}*/}
+        <div className="center">
+          <div className="page-header">
+            <div className="popover-hint">
+              {beforeBody.map((BodyComponent) => (
+                <div>
+                  {BodyComponent.displayName}
+                  <BodyComponent {...componentData} />
                 </div>
-              </div>
-              <Content {...componentData} />
-
-              {slug !=="404" && lastParam !=="index" && lastParam !== "Index" && lastParam !== "About-Me" && lastParam !== "Project" && (
-                <GiscusComment {...componentData} />
-              )}
+              ))}
             </div>
-            {RightComponent}
-          </Body>
-          <Footer {...componentData} />
+          </div>
+          <Content {...componentData} />
+
+          {slug !== "404" && lastParam !== "index" && lastParam !== "Index" && lastParam !== "About-Me" && lastParam !== "Project" && (
+            <GiscusComment {...componentData} />
+          )}
         </div>
-      </body>
-      {pageResources.js
-        .filter((resource) => resource.loadTime === "afterDOMReady")
-        .map((res) => JSResourceToScriptElement(res))}
-      {/*Giscus Comment script 태그는 JSResourceToScriptElement 참고*/}
-    </html>
-  )
+        {RightComponent}
+      </Body>
+      <Footer {...componentData} />
+    </div>
+    </body>
+    {pageResources.js
+      .filter((resource) => resource.loadTime === "afterDOMReady")
+      .map((res) => JSResourceToScriptElement(res))}
+    <script
+      src="https://giscus.app/client.js"
+      data-repo="JongDeug/blog"
+      data-repo-id="R_kgDOLUUAwA"
+      data-category="General"
+      data-category-id="DIC_kwDOLUUAwM4CdV1Q"
+      data-mapping="pathname"
+      data-strict="0"
+      data-reactions-enabled="1"
+      data-emit-metadata="0"
+      data-input-position="bottom"
+      data-theme="light"
+      data-lang="ko"
+      crossOrigin="anonymous"
+      async />
+  {/*Giscus Comment script 태그는 JSResourceToScriptElement 참고*/
+  }
+</html>
+)
 
   return "<!DOCTYPE html>\n" + render(doc)
 }

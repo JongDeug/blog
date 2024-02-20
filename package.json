@@ -1,10 +1,10 @@
 {
-  "name": "@jackyzha0/quartz",
-  "description": "🌱 publish your digital garden and notes as a website",
+  "name": "@jongdeug/blog",
+  "description": "🌱 정적 사이트 입니다!",
   "private": true,
   "version": "4.2.2",
   "type": "module",
-  "author": "jackyzha0 <j.zhao2k19@gmail.com>",
+  "author": "jongdeug <jongdeug2021@gmail.com>",
   "license": "MIT",
   "homepage": "https://jongdeug.github.io/blog",
   "repository": {

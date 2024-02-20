@@ -225,9 +225,16 @@ export function renderPage(
     </div>
   )
 
+  // Giscus 댓글 컨트롤
   const GiscusComment = GiscusCommentConstructor()
   const param = slug.split("/")
   const lastParam = param[param.length - 1]
+  let isTagParam
+  if (param.length >= 2 && param[0] === "tags") {
+    isTagParam = true
+  } else {
+    isTagParam = false
+  }
 
   const lang = componentData.frontmatter?.lang ?? cfg.locale?.split("-")[0] ?? "en"
   const doc = (
@@ -256,7 +263,7 @@ export function renderPage(
           </div>
           <Content {...componentData} />
 
-          {slug !== "404" && lastParam !== "index" && lastParam !== "Index" && lastParam !== "About-Me" && lastParam !== "Project" && (
+          {!isTagParam && slug !== "404" && lastParam !== "index" && lastParam !== "Index" && lastParam !== "About-Me" && lastParam !== "Project" && (
             <GiscusComment {...componentData} />
           )}
         </div>
@@ -283,8 +290,8 @@ export function renderPage(
       data-lang="ko"
       crossOrigin="anonymous"
       async></script>
-</html>
-)
+    </html>
+  )
 
   return "<!DOCTYPE html>\n" + render(doc)
 }

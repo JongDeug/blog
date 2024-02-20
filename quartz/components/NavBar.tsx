@@ -8,9 +8,8 @@ import config from "../../quartz.config"
 
 const NavBar: QuartzComponent = (props: QuartzComponentProps) => {
   const title = props.cfg?.pageTitle ?? i18n(props.cfg.locale).propertyDefaults.title
-  // const baseDir = pathToRoot(props.fileData.slug!)
   const Darkmode = DarkmodeConstructor()
-  const baseUrl = config.configuration.baseUrl
+  const baseUrl = `https://jongdeug.github.io/blog`
   return (
     <nav>
       <h1 className={classNames(props.displayClass, "page-title")}>

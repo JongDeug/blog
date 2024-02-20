@@ -283,7 +283,6 @@ export function renderPage(
       data-lang="ko"
       crossOrigin="anonymous"
       async />
-  {/*Giscus Comment script 태그는 JSResourceToScriptElement 참고*/
   }
 </html>
 )

@@ -21,11 +21,9 @@ date: 2020-04-09
 
 min이나 max에 이전 입력 값을 다시 넣어주어 해결했습니다.
 
-```Java
+```java
 min = input;  //min에 입력값을 넣어주어 범위를 다시 설정한다.
-
 System.out.println("더 높게");
-
 System.out.print(min + " ~ " + max);
 ```
 

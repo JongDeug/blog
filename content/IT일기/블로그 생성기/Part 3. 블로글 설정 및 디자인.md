@@ -120,42 +120,6 @@ const doc = (
 ...
 ```
 
-`프로젝트폴더/quartz/util/resources.tsx` 변경, 얻은 `<script>` 태그 추가
-```typescript
-export function JSResourceToScriptElement(resource: JSResource, preserve?: boolean): JSX.Element {  
-  const scriptType = resource.moduleType ?? "application/javascript"  
-  const spaPreserve = preserve ?? resource.spaPreserve  
-  if (resource.contentType === "external") {  
-	
-	// giscus script 태그 추가
-    if (resource.src === "https://giscus.app/client.js") {  
-      return (  
-        <script  
-          key={resource.src}  
-          src={resource.src}  
-          data-repo="JongDeug/blog"  
-          data-repo-id=[추가]  
-          data-category=[추가]  
-          data-category-id=[추가]  
-          data-mapping="pathname"  
-          data-strict="0"  
-          data-reactions-enabled="1"  
-          data-emit-metadata="0"  
-          data-input-position="bottom"  
-          data-theme="light"  
-          data-lang="ko"  
-          crossOrigin="anonymous"  
-          async />  
-      )  
-    } else {  
-      return (  
-        <script key={resource.src} src={resource.src} type={scriptType} spa-preserve={spaPreserve} />  
-      )  
-    }
-  ...    
-}
-```
-
 저와 `url`경로가 다를 테니 적절하게 변경하시길 바랍니다. 다 하셨다면 잘 작동하실 겁니다. 
 
 > [!info] 참고로

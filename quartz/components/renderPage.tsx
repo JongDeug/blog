@@ -49,7 +49,6 @@ export function pageResources(
         moduleType: "module",
         contentType: "external",
       },
-
       // giscus comment 반드시 beforeDOM
       {
         src: "https://giscus.app/client.js",

@@ -158,8 +158,8 @@ a {
       width: $sidePanelWidth;
       margin-top: $topSpacing;
       box-sizing: border-box;
-      //padding: 0 0 0 4rem;
-      padding: 0 4rem;
+      padding: 0 0 0 4rem;
+      //padding: 0 4rem;
       position: static; // static
       min-height: 500px;
       @media all and (max-width: $fullPageWidth) {

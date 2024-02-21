@@ -7,7 +7,7 @@ export const sharedPageComponents: SharedLayout = {
   header: [Component.NavBar(), Component.Search()],
   footer: Component.Footer({
     links: {
-      GitHub: "https://github.com/JongDeug/jongdeug-blog",
+      GitHub: "https://github.com/JongDeug/blog",
       Quartz: "https://github.com/jackyzha0/quartz",
     },
   }),

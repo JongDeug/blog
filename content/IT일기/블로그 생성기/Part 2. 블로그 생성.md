@@ -4,12 +4,15 @@ draft: false
 tags:
   - 블로그
   - blog
+  - quartz
+  - github
+  - obsidian
 date: 2024-02-21
 ---
 ## 들어가기에 앞서
 
 ==Obsidian을 사용하는 분들에게 권장드립니다.==
-## 참조 링크
+## 참고 링크
 
 - [유튜브](https://www.youtube.com/watch?v=6s6DT1yN4dw)
 - [quartz 공식 문서](https://quartz.jzhao.xyz/)
@@ -72,6 +75,7 @@ tags:
 ---
 ```
 참고로 `draft`를 체크하면 블로그에 올라가지 않습니다.
+
 
 설정 => Longform => New scene template => templates/템플릿이름.md
 ![[Pasted image 20240221223304.png]]
@@ -154,3 +158,5 @@ deploy가 다 됐다면 해당 페이지 링크로 이동해봅시다.
 잘 올라간 것을 확인했습니다!
 ![[Pasted image 20240221232546.png]]
 
+
+다음 : [[Part 3. 블로글 설정 및 디자인]]

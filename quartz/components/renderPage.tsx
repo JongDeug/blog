@@ -45,7 +45,7 @@ export function pageResources(
       ...staticResources.js,
       {
         src: joinSegments(baseDir, "postscript.js"),
-        loadTime: "afterDOMReady",
+        loadTime: "beforeDOMReady",
         moduleType: "module",
         contentType: "external",
       },
@@ -53,7 +53,7 @@ export function pageResources(
       // giscus comment 반드시 beforeDOM
       {
         src: "https://giscus.app/client.js",
-        loadTime: "beforeDOMReady",
+        loadTime: "afterDOMReady",
         contentType: "external",
       },
     ],

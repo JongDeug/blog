@@ -4,6 +4,8 @@ draft: false
 tags:
   - 블로그
   - blog
+  - quartz
+  - obsidian
 date: 2024-02-20
 ---
 

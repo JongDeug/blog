@@ -7,7 +7,7 @@ longform:
   scenes:
     - 블로그 운영 이유
     - Part 1. 블로그 서비스 선택
-    - Part 2. 블로그 만들기
+    - Part 2. 블로그 생성
   sceneTemplate: templates/post.md
   ignoredFiles:
     - 블로그 운영 이유

@@ -53,7 +53,7 @@ export function pageResources(
       // giscus comment 반드시 beforeDOM
       {
         src: "https://giscus.app/client.js",
-        loadTime: "afterDOMReady",
+        loadTime: "beforeDOMReady",
         contentType: "external",
       },
     ],

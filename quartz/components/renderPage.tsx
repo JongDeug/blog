@@ -49,12 +49,6 @@ export function pageResources(
         moduleType: "module",
         contentType: "external",
       },
-      // giscus comment 반드시 beforeDOM
-      {
-        src: "https://giscus.app/client.js",
-        loadTime: "beforeDOMReady",
-        contentType: "external",
-      },
     ],
   }
 }
@@ -224,7 +218,7 @@ export function renderPage(
     </div>
   )
 
-  // Giscus 댓글 컨트롤
+  // Giscus 컨트롤
   const GiscusComment = GiscusCommentConstructor()
   const param = slug.split("/")
   const lastParam = param[param.length - 1]
@@ -232,6 +226,7 @@ export function renderPage(
 
 
   const lang = componentData.frontmatter?.lang ?? cfg.locale?.split("-")[0] ?? "en"
+  // @ts-ignore
   const doc = (
     <html lang={lang}>
     <Head {...componentData} />
@@ -257,9 +252,28 @@ export function renderPage(
             </div>
           </div>
           <Content {...componentData} />
-          {/*Giscus 제어*/}
+
+          {/*Giscus url에 맞게 주입*/}
           {lastParam !== "index" && firstParam !== "About-Me" && firstParam !== "Projects" && firstParam !== "index" && firstParam !== "404" && firstParam !== "tags" &&
-            (<GiscusComment {...componentData} />)
+            (
+              <><GiscusComment {...componentData} />
+                <script
+                  src="https://giscus.app/client.js"
+                  data-repo="JongDeug/blog"
+                  data-repo-id="R_kgDOLUUAwA"
+                  data-category="General"
+                  data-category-id="DIC_kwDOLUUAwM4CdV1Q"
+                  data-mapping="pathname"
+                  data-strict="0"
+                  data-reactions-enabled="1"
+                  data-emit-metadata="0"
+                  data-input-position="bottom"
+                  data-theme="light"
+                  data-lang="ko"
+                  crossOrigin="anonymous"
+                  async />
+              </>
+            )
           }
         </div>
         {RightComponent}
@@ -268,7 +282,6 @@ export function renderPage(
     </div>
     </body>
 
-    {/*giscus script 태그는 JSResourceToScriptElement 참고*/}
     {pageResources.js
       .filter((resource) => resource.loadTime === "afterDOMReady")
       .map((res) => JSResourceToScriptElement(res))}

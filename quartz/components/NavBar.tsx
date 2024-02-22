@@ -18,7 +18,6 @@ const NavBar: QuartzComponent = (props: QuartzComponentProps) => {
       </h1>
 
       <ul>
-
         <li>
           <a href={baseDir}>📙 Blog</a>
         </li>

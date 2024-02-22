@@ -3,20 +3,12 @@ import { QuartzComponent, QuartzComponentProps } from "./types"
 import HeaderConstructor from "./Header"
 import BodyConstructor from "./Body"
 import { JSResourceToScriptElement, StaticResources } from "../util/resources"
-import {
-  clone,
-  FullSlug,
-  RelativeURL,
-  joinSegments,
-  normalizeHastElement,
-  pathToRoot,
-} from "../util/path"
+import { clone, FullSlug, RelativeURL, joinSegments, normalizeHastElement } from "../util/path"
 import { visit } from "unist-util-visit"
 import { Root, Element, ElementContent } from "hast"
 import { GlobalConfiguration } from "../cfg"
 import { i18n } from "../i18n"
 import { QuartzPluginData } from "../plugins/vfile"
-import GiscusCommentConstructor from "./GiscusComment"
 
 interface RenderComponents {
   head: QuartzComponent
@@ -225,12 +217,6 @@ export function renderPage(
     </div>
   )
 
-  // Giscus 컨트롤
-  const GiscusComment = GiscusCommentConstructor()
-  const param = slug.split("/")
-  const lastParam = param[param.length - 1]
-  const firstParam = param[0]
-
   const lang = componentData.frontmatter?.lang ?? cfg.locale?.split("-")[0] ?? "en"
   // @ts-ignore
   const doc = (
@@ -258,34 +244,6 @@ export function renderPage(
                 </div>
               </div>
               <Content {...componentData} />
-
-              {/*Giscus url에 맞게 주입*/}
-              {lastParam !== "index" &&
-                firstParam !== "About-Me" &&
-                firstParam !== "Projects" &&
-                firstParam !== "index" &&
-                firstParam !== "404" &&
-                firstParam !== "tags" && (
-                  <>
-                    <GiscusComment {...componentData} />
-                    <script
-                      src="https://giscus.app/client.js"
-                      data-repo="JongDeug/blog"
-                      data-repo-id="R_kgDOLUUAwA"
-                      data-category="General"
-                      data-category-id="DIC_kwDOLUUAwM4CdV1Q"
-                      data-mapping="pathname"
-                      data-strict="0"
-                      data-reactions-enabled="1"
-                      data-emit-metadata="0"
-                      data-input-position="bottom"
-                      data-theme="light"
-                      data-lang="ko"
-                      crossOrigin="anonymous"
-                      async
-                    />
-                  </>
-                )}
             </div>
             {RightComponent}
           </Body>

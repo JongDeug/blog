@@ -14,7 +14,6 @@ const NavBar: QuartzComponent = (props: QuartzComponentProps) => {
     <nav>
       <h1 className={classNames(props.displayClass, "page-title")}>
         <a href={baseDir}>{title}</a>
-        <a>{baseDir}</a>
       </h1>
 
       <ul>
@@ -25,7 +24,7 @@ const NavBar: QuartzComponent = (props: QuartzComponentProps) => {
           <a href={`${baseDir}/Projects`}>📂 Projects</a>
         </li>
         <li>
-          <a href={`${baseUrl}/About-Me`}>🔎 About</a>
+          <a href={`${baseDir}/About-Me`}>🔎 About</a>
         </li>
       </ul>
 

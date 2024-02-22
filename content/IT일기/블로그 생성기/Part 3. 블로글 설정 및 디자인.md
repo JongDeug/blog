@@ -33,11 +33,11 @@ date: 2024-02-21
 
 ### Step 3 라우팅
 
-quartz에서 `build`를 하고나면 `content`폴더 안의 파일들이 `html` 파일로 변경됩니다. 이들의 경로를 `slug`라고 합니다. 이를 활용해서 원하는 경로를 생성 하시면 됩니다.
+quartz에서 `build`를 하고 나면 `content`폴더 안의 파일들이 `html` 파일로 변경됩니다. 폴더 및 파일 이름이 `url`이고 `slug` 변수를 통해 경로를 받아올 수 있습니다.
 
 > [!info] 추가로
-> `index.md` 파일은 탐색기에서 보이지 않습니다.
-> 제가 겪었던 문제인데 `Index` 파일을 탐색기에서 지우고 싶었습니다. 하지만 `Index` 파일을 지우게 되면 폴더 경로를 지우는 것과 마찬가지이므로 `Index` => `index` 로 변경했고 title property를 추가해 문제를 해결했습니다.
+> `index.md` 파일은 탐색기에서 보이지 않습니다. (폴더 설명 파일)
+> Longform 플러그인을 사용하게 되면 `Index` 파일을 생성해 줍니다. 저는 이 `Index` 파일을 탐색기에 표시하고 싶지 않았습니다. 그렇다고 삭제를 하게 되면 폴더 경로를 지우는 게 되는 것이므로 `Index` => `index` 로 이름을 변경하여 문제를 해결했습니다. 제목을 변경하고 싶다면`title` property를 추가하시면 됩니다.
 
 ### Step 4 댓글 기능
 
@@ -45,7 +45,7 @@ quartz에서 `build`를 하고나면 `content`폴더 안의 파일들이 `html` 
 
 우선 제가 사용한 댓글 오픈 소스는 [giscus](https://giscus.app/ko)입니다. 이 링크를 들어가셔서 해당 절차에 맞게 설정하시길 바랍니다.
 
-설정을 다하셨다면 `<script>` 태그를 얻으셨을 겁니다.
+**먼저 SPA 설정을 `false`로 변경해야 합니다. `true`로 설정하면 페이지 로드가 한 번만 되기 때문에 댓글 기능이 작동하지 않습니다.**
 
 `프로젝트폴더/quartz.config.ts`
 
@@ -53,82 +53,50 @@ quartz에서 `build`를 하고나면 `content`폴더 안의 파일들이 `html` 
 enableSPA: false
 ```
 
-**SPA를 `true`로 설정하면 리로드가 되지 않기 때문에 링크를 타고 들어간다면 댓글 기능이 보이지 않는 문제가 생깁니다.**
+giscus 설정을 다하셨다면 `<script>` 태그를 얻으셨을 겁니다. 이를 아래와 같이 `Content.tsx` 파일에 넣어줍니다.
 
-`프로젝트폴더/quartz/components/GiscusComment.tsx` 추가
+`프로젝트폴더/quartz/components/pages/Content.tsx` 변경
 
 ```typescript
-import { QuartzComponent, QuartzComponentConstructor, QuartzComponentProps } from "./types"
+import { htmlToJsx } from "../../util/jsx"
+import { QuartzComponentConstructor, QuartzComponentProps } from "../types"
+import { simplifySlug } from "../../util/path"
 
-const GiscusComment: QuartzComponent = () => {
-  return <div class="giscus"></div>
+function Content({ fileData, tree }: QuartzComponentProps) {
+  const content = htmlToJsx(fileData.filePath!, tree)
+  const classes: string[] = fileData.frontmatter?.cssclasses ?? []
+  const classString = ["popover-hint", ...classes].join(" ")
+  const url = simplifySlug(fileData.slug!)
+
+  return (
+    <div>
+      <article class={classString}>{content}</article>
+      {/*댓글 기능*/}
+      {url === "/" || url === "About-Me" || url === "Projects" && (
+        <>
+          <div className="giscus"></div>
+          <script
+            src="https://giscus.app/client.js"
+            data-repo="JongDeug/blog"
+            data-repo-id=[추가]
+            data-category=[추가]
+            data-category-id=[추가]
+            data-mapping="pathname"
+            data-strict="0"
+            data-reactions-enabled="1"
+            data-emit-metadata="0"
+            data-input-position="bottom"
+            data-theme="light"
+            data-lang="ko"
+            crossOrigin="anonymous"
+            async />
+        </>
+      )}
+    </div>
+  )
 }
 
-export default (() => GiscusComment) satisfies QuartzComponentConstructor
+export default (() => Content) satisfies QuartzComponentConstructor
 ```
-
-`프로젝트폴더/quartz/components/renderPage.tsx` 변경
-
-```typescript
-import GiscusCommentConstructor from "./GiscusComment"
-
-...
-
-// url 경로에 따른 giscus 컨트롤
-const GiscusComment = GiscusCommentConstructor()
-const param = slug.split("/")
-const lastParam = param[param.length - 1]
-const firstParam = param[0]
-
-...
-
-const doc = (
-  <html lang={lang}>
-  <Head {...componentData} />
-  <body data-slug={slug}>
-    <Body {...componentData}>
-	  ...
-
-
-		{/*Giscus url에 맞게 주입*/}
-		{lastParam !== "index" && firstParam !== "About-Me" && firstParam !== "Projects" && firstParam !== "index" && firstParam !== "404" && firstParam !== "tags" &&
-		  (
-		    <><GiscusComment {...componentData} />
-		      <script
-			    src="https://giscus.app/client.js"
-		        data-repo=[추가]
-		        data-repo-id=[추가]
-		        data-category=[추가]
-		        data-category-id=[추가]
-		        data-mapping="pathname"
-		        data-strict="0"
-		        data-reactions-enabled="1"
-		        data-emit-metadata="0"
-		        data-input-position="bottom"
-		        data-theme="light"
-		        data-lang="ko"
-		        crossOrigin="anonymous"
-		        async />
-		    </>
-		  )
-		}
-
-      ...
-    </Body>
-  </body>
-
-  {pageResources.js
-    .filter((resource) => resource.loadTime === "afterDOMReady")
-    .map((res) => JSResourceToScriptElement(res))}
-  </html>
-)
-
-...
-```
-
-저와 `url`경로가 다를 테니 적절하게 변경하시길 바랍니다. 다 하셨다면 잘 작동하실 겁니다.
-
-> [!info] 참고로
-> 제가 프론트에 대해 깊게 알지 못해 코드가 깔끔하지 않을 수 있습니다. 보다 나은 코드가 있으면 댓글로 공유 부탁드립니다!
 
 다음 : [[Part 4. 블로그 검색 노출]]

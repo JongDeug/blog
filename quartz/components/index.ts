@@ -19,7 +19,6 @@ import DesktopOnly from "./DesktopOnly"
 import MobileOnly from "./MobileOnly"
 import RecentNotes from "./RecentNotes"
 import Breadcrumbs from "./Breadcrumbs"
-import GiscusComment from "./GiscusComment"
 
 // 만든거
 import NavBar from "./NavBar"
@@ -49,5 +48,4 @@ export {
 
   // 추가
   NavBar,
-  GiscusComment,
 }

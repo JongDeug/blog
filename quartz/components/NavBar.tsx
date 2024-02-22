@@ -7,21 +7,22 @@ import DarkmodeConstructor from "./Darkmode"
 
 const NavBar: QuartzComponent = (props: QuartzComponentProps) => {
   const title = props.cfg?.pageTitle ?? i18n(props.cfg.locale).propertyDefaults.title
-  // const baseDir = pathToRoot(props.fileData.slug!)
+  const baseDir = pathToRoot(props.fileData.slug!)
   const Darkmode = DarkmodeConstructor()
   const baseUrl = `https://${props.cfg.baseUrl}`
   return (
     <nav>
       <h1 className={classNames(props.displayClass, "page-title")}>
-        <a href={baseUrl}>{title}</a>
+        <a href={baseDir}>{title}</a>
+        <a>{baseDir}</a>
       </h1>
 
       <ul>
         <li>
-          <a href={baseUrl}>📙 Blog</a>
+          <a href={baseDir}>📙 Blog</a>
         </li>
         <li>
-          <a href={`${baseUrl}/Projects`}>📂 Projects</a>
+          <a href={`${baseDir}/Projects`}>📂 Projects</a>
         </li>
         <li>
           <a href={`${baseUrl}/About-Me`}>🔎 About</a>

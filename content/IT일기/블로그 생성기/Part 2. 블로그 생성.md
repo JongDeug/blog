@@ -11,7 +11,7 @@ date: 2024-02-21
 ---
 ## 들어가기에 앞서
 
-==Obsidian을 사용하는 분들에게 권장드립니다.==
+==Obsidian을 사용하는 분들께 권장 드립니다.==
 ## 참고 링크
 
 - [유튜브](https://www.youtube.com/watch?v=6s6DT1yN4dw)

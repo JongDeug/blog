@@ -8,6 +8,7 @@ tags:
   - obsidian
 date: 2024-02-21
 ---
+
 ## 들어가기에 앞서
 
 저는 `html`, `css`, `javascript`를 다룰 줄 알기에 조금은 수월하게 원하는 디자인을 구성했습니다. 기본 설정(컴포넌트 배치, 색상, `baseUrl` ...)을 제외하고 원하는 디자인을 구성하려면 적어도 `html`, `css`를 다룰 줄 알아야 합니다.
@@ -15,13 +16,14 @@ date: 2024-02-21
 ## 참고 링크
 
 ==공식 문서를 꼭 활용하시길 바랍니다.==
+
 - [quartz 공식 문서](https://quartz.jzhao.xyz/)
 
-## 블로그 설정 및 디자인 
+## 블로그 설정 및 디자인
 
 ### Step 1 기본 설정
 
-공식 문서를 보면서 `프로젝트폴더/quartz.config.ts` 와 `프로젝트폴더/quartz.layout.ts` 파일을 변경하시면 됩니다. 
+공식 문서를 보면서 `프로젝트폴더/quartz.config.ts` 와 `프로젝트폴더/quartz.layout.ts` 파일을 변경하시면 됩니다.
 
 ### Step 2 디자인
 
@@ -39,91 +41,94 @@ quartz에서 `build`를 하고나면 `content`폴더 안의 파일들이 `html` 
 
 ### Step 4 댓글 기능
 
-제가 댓글 기능에서 막힌 부분이 있어 도움을 드리고자 작성했습니다. 
+제가 댓글 기능에서 막힌 부분이 있어 도움을 드리고자 작성했습니다.
 
-우선 제가 사용한 댓글 오픈 소스는 [giscus](https://giscus.app/ko)입니다. 이 링크를 들어가셔서 해당 절차에 맞게 설정하시길 바랍니다. 
+우선 제가 사용한 댓글 오픈 소스는 [giscus](https://giscus.app/ko)입니다. 이 링크를 들어가셔서 해당 절차에 맞게 설정하시길 바랍니다.
 
 설정을 다하셨다면 `<script>` 태그를 얻으셨을 겁니다.
 
 `프로젝트폴더/quartz.config.ts`
+
 ```javascript
 enableSPA: false
 ```
+
 **SPA를 `true`로 설정하면 리로드가 되지 않기 때문에 링크를 타고 들어간다면 댓글 기능이 보이지 않는 문제가 생깁니다.**
 
 `프로젝트폴더/quartz/components/GiscusComment.tsx` 추가
+
 ```typescript
-import { QuartzComponent, QuartzComponentConstructor, QuartzComponentProps } from "./types"  
-  
-const GiscusComment: QuartzComponent = () => {  
-  return <div class="giscus"></div>  
-}  
-  
+import { QuartzComponent, QuartzComponentConstructor, QuartzComponentProps } from "./types"
+
+const GiscusComment: QuartzComponent = () => {
+  return <div class="giscus"></div>
+}
+
 export default (() => GiscusComment) satisfies QuartzComponentConstructor
 ```
 
 `프로젝트폴더/quartz/components/renderPage.tsx` 변경
+
 ```typescript
 import GiscusCommentConstructor from "./GiscusComment"
 
 ...
 
 // url 경로에 따른 giscus 컨트롤
-const GiscusComment = GiscusCommentConstructor()  
-const param = slug.split("/")  
-const lastParam = param[param.length - 1]  
+const GiscusComment = GiscusCommentConstructor()
+const param = slug.split("/")
+const lastParam = param[param.length - 1]
 const firstParam = param[0]
 
 ...
 
-const doc = (  
-  <html lang={lang}>  
-  <Head {...componentData} />  
-  <body data-slug={slug}>  
-    <Body {...componentData}>  
+const doc = (
+  <html lang={lang}>
+  <Head {...componentData} />
+  <body data-slug={slug}>
+    <Body {...componentData}>
 	  ...
 
-				  
-		{/*Giscus url에 맞게 주입*/}  
-		{lastParam !== "index" && firstParam !== "About-Me" && firstParam !== "Projects" && firstParam !== "index" && firstParam !== "404" && firstParam !== "tags" &&  
-		  (  
-		    <><GiscusComment {...componentData} />  
-		      <script        
-			    src="https://giscus.app/client.js"  
-		        data-repo=[추가]  
+
+		{/*Giscus url에 맞게 주입*/}
+		{lastParam !== "index" && firstParam !== "About-Me" && firstParam !== "Projects" && firstParam !== "index" && firstParam !== "404" && firstParam !== "tags" &&
+		  (
+		    <><GiscusComment {...componentData} />
+		      <script
+			    src="https://giscus.app/client.js"
+		        data-repo=[추가]
 		        data-repo-id=[추가]
-		        data-category=[추가]  
-		        data-category-id=[추가] 
-		        data-mapping="pathname"  
-		        data-strict="0"  
-		        data-reactions-enabled="1"  
-		        data-emit-metadata="0"  
-		        data-input-position="bottom"  
-		        data-theme="light"  
-		        data-lang="ko"  
-		        crossOrigin="anonymous"  
-		        async />  
-		    </>  
-		  )  
+		        data-category=[추가]
+		        data-category-id=[추가]
+		        data-mapping="pathname"
+		        data-strict="0"
+		        data-reactions-enabled="1"
+		        data-emit-metadata="0"
+		        data-input-position="bottom"
+		        data-theme="light"
+		        data-lang="ko"
+		        crossOrigin="anonymous"
+		        async />
+		    </>
+		  )
 		}
-      
+
       ...
-    </Body>  
+    </Body>
   </body>
 
-  {pageResources.js  
-    .filter((resource) => resource.loadTime === "afterDOMReady")  
-    .map((res) => JSResourceToScriptElement(res))}  
+  {pageResources.js
+    .filter((resource) => resource.loadTime === "afterDOMReady")
+    .map((res) => JSResourceToScriptElement(res))}
   </html>
-)  
+)
 
 ...
 ```
 
-저와 `url`경로가 다를 테니 적절하게 변경하시길 바랍니다. 다 하셨다면 잘 작동하실 겁니다. 
+저와 `url`경로가 다를 테니 적절하게 변경하시길 바랍니다. 다 하셨다면 잘 작동하실 겁니다.
 
 > [!info] 참고로
 > 제가 프론트에 대해 깊게 알지 못해 코드가 깔끔하지 않을 수 있습니다. 보다 나은 코드가 있으면 댓글로 공유 부탁드립니다!
 
 다음 : [[Part 4. 블로그 검색 노출]]
-

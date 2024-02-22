@@ -9,9 +9,11 @@ tags:
   - obsidian
 date: 2024-02-21
 ---
+
 ## 들어가기에 앞서
 
 ==Obsidian을 사용하는 분들께 권장 드립니다.==
+
 ## 참고 링크
 
 - [유튜브](https://www.youtube.com/watch?v=6s6DT1yN4dw)
@@ -54,7 +56,7 @@ git remote add origin <레포지토리 HTTPS or SSH>
 
 ### Step 3 Obisidian 설정 및 게시글 올리기
 
-Obisidian 앱에서 해당 프로젝트 폴더로 이동합니다. 
+Obisidian 앱에서 해당 프로젝트 폴더로 이동합니다.
 
 Longform 플러그인 설치
 ![[Screenshot from 2024-02-21 22-16-43.png]]
@@ -66,6 +68,7 @@ Templater 설치
 ![[Pasted image 20240221222812.png]]
 
 `templates` 새 노트 상단에 해당 텍스트 추가
+
 ```
 ---
 title: <% tp.file.title %>
@@ -74,8 +77,8 @@ tags:
   - example-tag
 ---
 ```
-참고로 `draft`를 체크하면 블로그에 올라가지 않습니다.
 
+참고로 `draft`를 체크하면 블로그에 올라가지 않습니다.
 
 설정 => Longform => New scene template => templates/템플릿이름.md
 ![[Pasted image 20240221223304.png]]
@@ -100,21 +103,21 @@ Create
 
 ```
 name: Deploy Quartz site to GitHub Pages
- 
+
 on:
   push:
     branches:
       - v4
- 
+
 permissions:
   contents: read
   pages: write
   id-token: write
- 
+
 concurrency:
   group: "pages"
   cancel-in-progress: false
- 
+
 jobs:
   build:
     runs-on: ubuntu-22.04
@@ -133,7 +136,7 @@ jobs:
         uses: actions/upload-pages-artifact@v2
         with:
           path: public
- 
+
   deploy:
     needs: build
     environment:
@@ -157,6 +160,5 @@ deploy가 다 됐다면 해당 페이지 링크로 이동해봅시다.
 
 잘 올라간 것을 확인했습니다!
 ![[Pasted image 20240221232546.png]]
-
 
 다음 : [[Part 3. 블로글 설정 및 디자인]]

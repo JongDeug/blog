@@ -25,5 +25,5 @@ Obsidian을 CMS로 사용하기 위해 md 파일을 html로 변환하는 소프�
 
 ## 해결
 
-구글, Reddit, Obsidian 커뮤니티에서 Obsidian을 CMS로 사용하는 blog가 없는지 찾아봤습니다. 
-이때 quartz를 찾았고, 딱 제가 원하던 기능을 구현해 준 오픈소스였습니다. 
+구글, Reddit, Obsidian 커뮤니티에서 Obsidian을 CMS로 사용하는 blog가 없는지 찾아봤습니다.
+이때 quartz를 찾았고, 딱 제가 원하던 기능을 구현해 준 오픈소스였습니다.

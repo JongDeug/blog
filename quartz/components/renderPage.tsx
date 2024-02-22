@@ -3,7 +3,14 @@ import { QuartzComponent, QuartzComponentProps } from "./types"
 import HeaderConstructor from "./Header"
 import BodyConstructor from "./Body"
 import { JSResourceToScriptElement, StaticResources } from "../util/resources"
-import { clone, FullSlug, RelativeURL, joinSegments, normalizeHastElement, pathToRoot } from "../util/path"
+import {
+  clone,
+  FullSlug,
+  RelativeURL,
+  joinSegments,
+  normalizeHastElement,
+  pathToRoot,
+} from "../util/path"
 import { visit } from "unist-util-visit"
 import { Root, Element, ElementContent } from "hast"
 import { GlobalConfiguration } from "../cfg"
@@ -224,67 +231,71 @@ export function renderPage(
   const lastParam = param[param.length - 1]
   const firstParam = param[0]
 
-
   const lang = componentData.frontmatter?.lang ?? cfg.locale?.split("-")[0] ?? "en"
   // @ts-ignore
   const doc = (
     <html lang={lang}>
-    <Head {...componentData} />
-    <body data-slug={slug}>
-    <div id="quartz-root" className="page">
-      <Header {...componentData}>
-        {header.map((HeaderComponent) => (
-          <HeaderComponent {...componentData} />
-        ))}
-      </Header>
+      <Head {...componentData} />
+      <body data-slug={slug}>
+        <div id="quartz-root" className="page">
+          <Header {...componentData}>
+            {header.map((HeaderComponent) => (
+              <HeaderComponent {...componentData} />
+            ))}
+          </Header>
 
-      <Body {...componentData}>
-        {/*{LeftComponent}*/}
-        <div className="center">
-          <div className="page-header">
-            <div className="popover-hint">
-              {beforeBody.map((BodyComponent) => (
-                <div>
-                  {BodyComponent.displayName}
-                  <BodyComponent {...componentData} />
+          <Body {...componentData}>
+            {/*{LeftComponent}*/}
+            <div className="center">
+              <div className="page-header">
+                <div className="popover-hint">
+                  {beforeBody.map((BodyComponent) => (
+                    <div>
+                      {BodyComponent.displayName}
+                      <BodyComponent {...componentData} />
+                    </div>
+                  ))}
                 </div>
-              ))}
+              </div>
+              <Content {...componentData} />
+
+              {/*Giscus url에 맞게 주입*/}
+              {lastParam !== "index" &&
+                firstParam !== "About-Me" &&
+                firstParam !== "Projects" &&
+                firstParam !== "index" &&
+                firstParam !== "404" &&
+                firstParam !== "tags" && (
+                  <>
+                    <GiscusComment {...componentData} />
+                    <script
+                      src="https://giscus.app/client.js"
+                      data-repo="JongDeug/blog"
+                      data-repo-id="R_kgDOLUUAwA"
+                      data-category="General"
+                      data-category-id="DIC_kwDOLUUAwM4CdV1Q"
+                      data-mapping="pathname"
+                      data-strict="0"
+                      data-reactions-enabled="1"
+                      data-emit-metadata="0"
+                      data-input-position="bottom"
+                      data-theme="light"
+                      data-lang="ko"
+                      crossOrigin="anonymous"
+                      async
+                    />
+                  </>
+                )}
             </div>
-          </div>
-          <Content {...componentData} />
-
-          {/*Giscus url에 맞게 주입*/}
-          {lastParam !== "index" && firstParam !== "About-Me" && firstParam !== "Projects" && firstParam !== "index" && firstParam !== "404" && firstParam !== "tags" &&
-            (
-              <><GiscusComment {...componentData} />
-                <script
-                  src="https://giscus.app/client.js"
-                  data-repo="JongDeug/blog"
-                  data-repo-id="R_kgDOLUUAwA"
-                  data-category="General"
-                  data-category-id="DIC_kwDOLUUAwM4CdV1Q"
-                  data-mapping="pathname"
-                  data-strict="0"
-                  data-reactions-enabled="1"
-                  data-emit-metadata="0"
-                  data-input-position="bottom"
-                  data-theme="light"
-                  data-lang="ko"
-                  crossOrigin="anonymous"
-                  async />
-              </>
-            )
-          }
+            {RightComponent}
+          </Body>
+          <Footer {...componentData} />
         </div>
-        {RightComponent}
-      </Body>
-      <Footer {...componentData} />
-    </div>
-    </body>
+      </body>
 
-    {pageResources.js
-      .filter((resource) => resource.loadTime === "afterDOMReady")
-      .map((res) => JSResourceToScriptElement(res))}
+      {pageResources.js
+        .filter((resource) => resource.loadTime === "afterDOMReady")
+        .map((res) => JSResourceToScriptElement(res))}
     </html>
   )
 

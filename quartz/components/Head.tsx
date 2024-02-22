@@ -38,7 +38,10 @@ export default (() => {
         <meta name="generator" content="Quartz" />
 
         {/*구글, 네이버 seo*/}
-        <meta name="google-site-verification" content="bTNWXVl5fZtKsIOmBKpPkRAcgmg_2XvEhTMWBV4htnA" />
+        <meta
+          name="google-site-verification"
+          content="bTNWXVl5fZtKsIOmBKpPkRAcgmg_2XvEhTMWBV4htnA"
+        />
         <meta name="naver-site-verification" content="6a32d4859210cd7ae3be6503b5cfd128e874b1ee" />
         {css.map((href) => (
           <link key={href} href={href} rel="stylesheet" type="text/css" spa-preserve />

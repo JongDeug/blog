@@ -8,9 +8,10 @@ tags:
   - obsidian
 date: 2024-02-22
 ---
+
 ## 들어가기에 앞서
 
-먼저 sitemap과 rss를 활성화 시켜야 합니다. `프로젝트폴더/quartz.config.ts` 에서 `enableSiteMap: true`,  `enableRSS: true`가 되어 있는지 확인합니다.
+먼저 sitemap과 rss를 활성화 시켜야 합니다. `프로젝트폴더/quartz.config.ts` 에서 `enableSiteMap: true`, `enableRSS: true`가 되어 있는지 확인합니다.
 
 ## Google에 sitemap 등록
 
@@ -23,7 +24,7 @@ date: 2024-02-22
 
 `프로젝트폴더/quartz/components/Head.tsx`에 `<meta>` 태그를 추가하고 소유권을 인증합니다.
 
-마지막으로 좌측 메뉴 Sitemaps에서 `/sitemap.xml`과  `/index.xml` 을 추가하면 됩니다.
+마지막으로 좌측 메뉴 Sitemaps에서 `/sitemap.xml`과 `/index.xml` 을 추가하면 됩니다.
 ![[Pasted image 20240222012419.png]]
 
 # 끝

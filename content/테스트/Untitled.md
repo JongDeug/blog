@@ -1,6 +1,6 @@
 ---
-title: 
+title: Untitled
 draft: false
-tags: 
+tags:
 date:
 ---

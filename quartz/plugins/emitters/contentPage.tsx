@@ -91,7 +91,7 @@ export const ContentPage: QuartzEmitterPlugin<Partial<FullPageLayout>> = (userOp
       let containsIndex = false
       for (const [tree, file] of content) {
         const slug = file.data.slug!
-        if (slug === "index" || slug === "Index") {
+        if (slug === "index") {
           containsIndex = true
         }
 

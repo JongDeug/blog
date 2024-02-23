@@ -58,34 +58,41 @@ git remote add origin <레포지토리 HTTPS or SSH>
 
 Obisidian 앱에서 해당 프로젝트 폴더로 이동합니다.
 
+Longform 플러그인 설치
+![[Screenshot from 2024-02-21 22-16-43.png]]
+
 Templater 설치
 ![[Screenshot from 2024-02-21 22-16-53.png]]
 
-프로젝트 폴더에 `templates` 폴더 생성 => 우클릭 새 노트(제목 post)
+프로젝트 폴더에 `templates` 폴더 생성 => 새 노트
 ![[Pasted image 20240221222812.png]]
 
-노트 상단에 아래 텍스트 추가(참고로 글 작성할 때 `draft`를 체크하면 블로그에 올라가지 않습니다.)
+`templates` 새 노트 상단에 해당 텍스트 추가
+
 ```
 ---
-title: 
+title: <% tp.file.title %>
 draft: false
-tags: 
-date:
+tags:
+  - example-tag
 ---
 ```
 
-![[Pasted image 20240223084650.png]]
+참고로 `draft`를 체크하면 블로그에 올라가지 않습니다.
 
-`content` 폴더 안에 테스트 폴더 생성 => 우클릭 Create new note from template
-![[Screenshot from 2024-02-23 08-47-16 1.png]]
+설정 => Longform => New scene template => templates/템플릿이름.md
+![[Pasted image 20240221223304.png]]
 
-post 선택
-![[Screenshot from 2024-02-23 08-47-25.png]]
+`content` 폴더를 우클릭 => Create Longform Project 클릭
+![[Pasted image 20240221222128.png]]
 
-참고로 파일 이름이 `url` 경로이고, `title`은 게시글 제목이 될 것입니다. 그냥 똑같이 쓰는 것을 추천 드립니다.
-![[Pasted image 20240223090504.png]]
+Create
+![[Pasted image 20240221222204.png]]
 
-이제  `npx quartz build --serve` 명령어를 통해 현 상태를 잠시 확인해봅시다.
+상단 Longform 메뉴 이동 => New Scene에 원하는 게시글 제목 입력
+![[Pasted image 20240221223729.png]]
+
+원하는 게시글을 작성하고 `npx quartz build --serve` 명령어를 통해 현 상태를 잠시 확인해봅시다.
 
 짜잔! 😆 게시글이 잘 올라간 것을 볼 수 있습니다.
 ![[Pasted image 20240221230644.png]]

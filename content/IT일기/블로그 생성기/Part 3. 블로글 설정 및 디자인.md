@@ -37,23 +37,23 @@ quartz에서 폴더 안에 파일이 있는 경우 폴더 `index.html`이 자동
 
 폴더 구조로 설명 드리자면, 
 
-```
-content
-	IT일기
-		블로그 생성기
-			게시글.md
-		회고
 
+```
+content/
+├─ IT일기/
+│  ├─ 블로그 생성기/
+│  │  ├─ 게시글.md
+├─ 회고/
 ```
 
 `build` 를 거치면
 
 ```
-public
-	IT일기
-		블로그 생성기
-			index.html
-			게시글.html
+public/
+├─ IT일기/
+│  ├─ 블로그 생성기/
+│  │  ├─ index.html
+│  │  ├─ 게시글.md
 
 ```
 
@@ -76,8 +76,10 @@ public
 
  저는 첫 번째 방법을 자동화하는 방법을 선택했습니다.
  
-`프로젝트폴더/quartz/plugin/emitters/helpers.ts` 에 아래 코드 추가
-```typescript
+ 
+```typescript title="프로젝트폴더/quartz/plugin/emitters/helpers.ts" {3-30}
+...
+
 // Edit Longform Index.md  
 export const EditLongform = async () => {  
   const contentItems = await fs.promises.readdir("content", {  
@@ -102,13 +104,13 @@ export const EditLongform = async () => {
         await fs.promises.rename(oldPath, newPath)  
       } catch(err) {  
         console.log(err)  
-      }    }  
+      }   
+    }  
   }  
 }
 ```
 
-`프로젝트폴더/build.ts`에 `EditLongform` 함수 추가
-```typescript
+```typescript title="프로젝트폴더/build.ts" {10-11}
 ...
 
 async function buildQuartz(argv: Argv, mut: Mutex, clientRefresh: () => void) {  
@@ -132,17 +134,15 @@ async function buildQuartz(argv: Argv, mut: Mutex, clientRefresh: () => void) {
 
 **먼저 SPA 설정을 `false`로 변경해야 합니다. `true`로 설정하면 페이지 로드가 한 번만 되기 때문에 댓글 기능이 작동하지 않습니다.**
 
-`프로젝트폴더/quartz.config.ts`
 
-```javascript
+
+```javascript title="프로젝트폴더/quartz.config.ts"
 enableSPA: false
 ```
 
 giscus 설정을 다하셨다면 `<script>` 태그를 얻으셨을 겁니다. 이를 아래와 같이 `Content.tsx` 파일에 넣어줍니다.
 
-`프로젝트폴더/quartz/components/pages/Content.tsx` 변경
-
-```typescript
+```typescript title="프로젝트폴더/quartz/components/pages/Content.tsx" {3,9,14-35}
 import { htmlToJsx } from "../../util/jsx"
 import { QuartzComponentConstructor, QuartzComponentProps } from "../types"
 import { simplifySlug } from "../../util/path"
@@ -154,7 +154,8 @@ function Content({ fileData, tree }: QuartzComponentProps) {
   const url = simplifySlug(fileData.slug!)
 
   return (
-    <div>      <article class={classString}>{content}</article>
+    <div>      
+	  <article class={classString}>{content}</article>
       {/*댓글 기능*/}
       {url !== "/" && url !== "About-Me" && url !== "Projects" && (
         <>

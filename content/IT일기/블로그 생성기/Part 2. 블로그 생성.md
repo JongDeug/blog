@@ -98,9 +98,7 @@ Create
 
 ### Step 4 Github 페이지 생성
 
-`quartz/.github/workflows/deploy.yml` 생성
-
-```
+```yml title="quartz/.github/workflows/deploy.yml 생성"
 name: Deploy Quartz site to GitHub Pages
 
 on:

@@ -2,11 +2,12 @@ import { htmlToJsx } from "../../util/jsx"
 import { QuartzComponentConstructor, QuartzComponentProps } from "../types"
 import { simplifySlug } from "../../util/path"
 
-function Content({ fileData, tree }: QuartzComponentProps) {
-  const content = htmlToJsx(fileData.filePath!, tree)
-  const classes: string[] = fileData.frontmatter?.cssclasses ?? []
+
+function Content(props: QuartzComponentProps) {
+  const content = htmlToJsx(props.fileData.filePath!, props.tree)
+  const classes: string[] = props.fileData.frontmatter?.cssclasses ?? []
   const classString = ["popover-hint", ...classes].join(" ")
-  const url = simplifySlug(fileData.slug!)
+  const url = simplifySlug(props.fileData.slug!)
 
   return (
     <div>

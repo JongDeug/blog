@@ -13,7 +13,7 @@ import {
   stripSlashes,
   joinSegments,
   pathToRoot,
-  simplifySlug,
+  simplifySlug, isRelativeURL,
 } from "../../util/path"
 import { defaultListPageLayout, sharedPageComponents } from "../../../quartz.layout"
 import { FolderContent } from "../../components"
@@ -47,6 +47,7 @@ export const FolderPage: QuartzEmitterPlugin<Partial<FullPageLayout>> = (userOpt
       content.map(([_tree, vfile]) => {
         const slug = vfile.data.slug
         const folderName = path.dirname(slug ?? "") as SimpleSlug
+
         if (slug && folderName !== "." && folderName !== "tags") {
           graph.addEdge(vfile.data.filePath!, joinSegments(folderName, "index.html") as FilePath)
         }

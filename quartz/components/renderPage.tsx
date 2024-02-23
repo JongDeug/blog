@@ -3,7 +3,7 @@ import { QuartzComponent, QuartzComponentProps } from "./types"
 import HeaderConstructor from "./Header"
 import BodyConstructor from "./Body"
 import { JSResourceToScriptElement, StaticResources } from "../util/resources"
-import { clone, FullSlug, RelativeURL, joinSegments, normalizeHastElement } from "../util/path"
+import { clone, FullSlug, RelativeURL, joinSegments, normalizeHastElement, simplifySlug } from "../util/path"
 import { visit } from "unist-util-visit"
 import { Root, Element, ElementContent } from "hast"
 import { GlobalConfiguration } from "../cfg"
@@ -221,39 +221,41 @@ export function renderPage(
   // @ts-ignore
   const doc = (
     <html lang={lang}>
-      <Head {...componentData} />
-      <body data-slug={slug}>
-        <div id="quartz-root" className="page">
-          <Header {...componentData}>
-            {header.map((HeaderComponent) => (
-              <HeaderComponent {...componentData} />
-            ))}
-          </Header>
+    <Head {...componentData} />
+    <body data-slug={slug}>
+    <div id="quartz-root" className="page">
+      <Header {...componentData}>
+        {header.map((HeaderComponent) => (
+          <HeaderComponent {...componentData} />
+        ))}
+      </Header>
 
-          <Body {...componentData}>
-            {/*{LeftComponent}*/}
-            <div className="center">
-              <div className="page-header">
-                <div className="popover-hint">
-                  {beforeBody.map((BodyComponent) => (
-                    <div>
-                      {BodyComponent.displayName}
-                      <BodyComponent {...componentData} />
-                    </div>
-                  ))}
+      <Body {...componentData}>
+        {/*{LeftComponent}*/}
+        <div className="center">
+          <div className="page-header">
+            <div className="popover-hint">
+              {simplifySlug(slug) === "/" ?
+                null :
+                beforeBody.map((BodyComponent) => (
+                <div>
+                  {BodyComponent.displayName}
+                  <BodyComponent {...componentData}/>
                 </div>
-              </div>
-              <Content {...componentData} />
+              ))}
             </div>
-            {RightComponent}
-          </Body>
-          <Footer {...componentData} />
+          </div>
+          <Content {...componentData} />
         </div>
-      </body>
+        {RightComponent}
+      </Body>
+      <Footer {...componentData} />
+    </div>
+    </body>
 
-      {pageResources.js
-        .filter((resource) => resource.loadTime === "afterDOMReady")
-        .map((res) => JSResourceToScriptElement(res))}
+    {pageResources.js
+      .filter((resource) => resource.loadTime === "afterDOMReady")
+      .map((res) => JSResourceToScriptElement(res))}
     </html>
   )
 

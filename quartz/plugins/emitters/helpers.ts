@@ -28,18 +28,22 @@ export const EditLongform = async () => {
   })
   for (let item of contentItems) {
     if (item.isFile() && item.name.toLowerCase() === "index.md" && item.path !== "content") {
-      const itemFilePath = path.join(item.path, item.name)
-      const file = await fs.promises.readFile(itemFilePath)
+      try {
+        const itemFilePath = path.join(item.path, item.name)
+        const file = await fs.promises.readFile(itemFilePath)
 
-      // title property 추가
-      const frontMatter = matter(file)
-      frontMatter.data["title"] = frontMatter.data.longform.title
-      await fs.promises.writeFile(itemFilePath, frontMatter.stringify(""))
+        // title property 추가
+        const frontMatter = matter(file)
+        frontMatter.data["title"] = frontMatter.data.longform.title
+        await fs.promises.writeFile(itemFilePath, frontMatter.stringify(""))
 
-      // Index -> index 변경
-      const oldPath = path.join(item.path, item.name)
-      const newPath = path.join(item.path, "index.md")
-      await fs.promises.rename(oldPath, newPath)
+        // Index -> index 변경
+        const oldPath = path.join(item.path, item.name)
+        const newPath = path.join(item.path, "index.md")
+        await fs.promises.rename(oldPath, newPath)
+      } catch(err) {
+        console.log(err)
+      }
     }
   }
 }

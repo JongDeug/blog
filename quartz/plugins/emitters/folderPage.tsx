@@ -63,6 +63,7 @@ export const FolderPage: QuartzEmitterPlugin<Partial<FullPageLayout>> = (userOpt
         allFiles.flatMap((data) => {
           const slug = data.slug
           const folderName = path.dirname(slug ?? "") as SimpleSlug
+
           if (slug && folderName !== "." && folderName !== "tags") {
             return [folderName]
           }
@@ -90,8 +91,9 @@ export const FolderPage: QuartzEmitterPlugin<Partial<FullPageLayout>> = (userOpt
         }
       }
 
+      // 폴더 index.html 생성하는 곳임.
       for (const folder of folders) {
-        let slug = joinSegments(folder, "index") as FullSlug
+        const slug = joinSegments(folder, "index") as FullSlug
         const externalResources = pageResources(pathToRoot(slug), resources)
         const [tree, file] = folderDescriptions[folder]
         const componentData: QuartzComponentProps = {
@@ -102,7 +104,6 @@ export const FolderPage: QuartzEmitterPlugin<Partial<FullPageLayout>> = (userOpt
           tree,
           allFiles,
         }
-
 
         const content = renderPage(cfg, slug, componentData, opts, externalResources)
         const fp = await write({

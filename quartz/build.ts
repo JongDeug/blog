@@ -1,4 +1,5 @@
 import sourceMapSupport from "source-map-support"
+
 sourceMapSupport.install(options)
 import path from "path"
 import { PerfTimer } from "./util/perf"
@@ -19,6 +20,7 @@ import { options } from "./util/sourcemap"
 import { Mutex } from "async-mutex"
 import DepGraph from "./depgraph"
 import { getStaticResourcesFromPlugins } from "./plugins"
+import { EditLongform } from "./plugins/emitters/helpers"
 
 type Dependencies = Record<string, DepGraph<FilePath> | null>
 
@@ -44,6 +46,9 @@ async function buildQuartz(argv: Argv, mut: Mutex, clientRefresh: () => void) {
     cfg,
     allSlugs: [],
   }
+
+  // Edit Longform Index.md
+  await EditLongform()
 
   const perf = new PerfTimer()
   const output = argv.output

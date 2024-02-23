@@ -6,4 +6,6 @@ longform:
   sceneFolder: /
   scenes: []
   ignoredFiles: []
+title: 자료구조
 ---
+

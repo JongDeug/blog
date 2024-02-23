@@ -6,4 +6,6 @@ longform:
   sceneFolder: /
   scenes: []
   ignoredFiles: []
+title: 블로그 생성기
 ---
+

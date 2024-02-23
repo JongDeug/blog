@@ -6,4 +6,6 @@ longform:
   sceneFolder: /
   scenes: []
   ignoredFiles: []
+title: 컴퓨터 과학(CS)
 ---
+

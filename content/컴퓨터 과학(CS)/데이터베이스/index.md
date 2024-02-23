@@ -6,4 +6,6 @@ longform:
   sceneFolder: /
   scenes: []
   ignoredFiles: []
+title: 데이터베이스
 ---
+

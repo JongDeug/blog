@@ -30,10 +30,96 @@ date: 2024-02-21
 
 ### Step 3 라우팅
 
-quartz에서 `build`를 하고 나면 `content` 내용물이 `html` 파일로 변환되어 `public`에 저장됩니다. (파일이 아닌 폴더의 경우 `index.html`이 추가로 생성됩니다.) 따라서 폴더 및 파일 경로에 따라 `url`이 생성되고, `slug` 변수를 통해 경로를 다룰 수 있습니다.
+quartz에서 `build`를 하고 나면 `content` 내용물이 `html` 파일로 변환되어 `public`에 저장됩니다. 따라서 폴더 및 파일 경로에 따라 `url`이 생성되고, `slug` 변수를 통해 경로를 다룰 수 있습니다.
 
-> [!info] 참고
-> 파일이 아닌 폴더의 경우 `index.html`이 추가로 생성됩니다. 하지만 폴더 안에 파일이 없고 폴더만 있는 경우 `index.html`을 생성하지 않습니다. 그래서 자동으로 `Index.md` 파일을 생성해주는 Longform 플러그인을 사용하는 것입니다. 꼭! 프로젝트를 생성하고 나면 `Index` => `index` 이름을 변경해주시길 바랍니다.
+##### ⚠️ 문제 
+quartz에서 폴더 안에 파일이 있는 경우 폴더 `index.html`이 자동으로 생성됩니다. 하지만 파일이 없는 폴더의 경우(+ 폴더만 있는 경우도 포함) `index.html`을 생성하지 않습니다. 
+
+폴더 구조로 설명 드리자면, 
+
+```
+content
+	IT일기
+		블로그 생성기
+			게시글.md
+		회고
+
+```
+
+`build` 를 거치면
+
+```
+public
+	IT일기
+		블로그 생성기
+			index.html
+			게시글.html
+
+```
+
+==IT일기, 회고 파일은 `index.html` 파일이 생성되지 않아 해당 경로로 들어가면 404 페이지가 뜰 것입니다.==
+
+##### ✌ 해결 
+
+공식 문서 참조
+
+	You can override this by creating an `index.md` file in the folder with the `title` front- matter  field.
+
+> [!info] 첫 번째 방법
+> 
+
+ 사실 제일 쉬운 방법은 모든 폴더에 `index.html`과 `title` property를 추가하면 됩니다. Longform 플러그인을 통해 만들어진 `Index.md`를 `index.md`로 변경하고 `title` property를 추가하면 해결됩니다. **하지만! 너무 귀찮습니다.**  
+
+
+> [!info] 두 번째 방법
+> 
+
+ 저는 첫 번째 방법을 자동화하는 방법을 선택했습니다.
+ 
+`프로젝트폴더/quartz/plugin/emitters/helpers.ts` 에 아래 코드 추가
+```typescript
+// Edit Longform Index.md  
+export const EditLongform = async () => {  
+  const contentItems = await fs.promises.readdir("content", {  
+    encoding: "utf-8",  
+    recursive: true,  
+    withFileTypes: true,  
+  })  
+  for (let item of contentItems) {  
+    if (item.isFile() && item.name.toLowerCase() === "index.md" && item.path !== "content") {  
+      const itemFilePath = path.join(item.path, item.name)  
+      const file = await fs.promises.readFile(itemFilePath)  
+  
+      // title property 추가  
+      const frontMatter = matter(file)  
+      frontMatter.data["title"] = frontMatter.data.longform.title  
+      await fs.promises.writeFile(itemFilePath, frontMatter.stringify(""))  
+  
+      // Index -> index 변경  
+      const oldPath = path.join(item.path, item.name)  
+      const newPath = path.join(item.path, "index.md")  
+      await fs.promises.rename(oldPath, newPath)  
+    }  
+  }  
+}
+```
+
+`프로젝트폴더/build.ts`에 `EditLongform` 함수 추가
+```typescript
+...
+
+async function buildQuartz(argv: Argv, mut: Mutex, clientRefresh: () => void) {  
+  const ctx: BuildCtx = {  
+    argv,  
+    cfg,  
+    allSlugs: [],  
+  }  
+  
+  // Edit Longform Index.md
+  await EditLongform()
+
+...
+```
 
 ### Step 4 댓글 기능
 

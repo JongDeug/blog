@@ -15,6 +15,7 @@ import { Content } from "../../components"
 import chalk from "chalk"
 import { write } from "./helpers"
 import DepGraph from "../../depgraph"
+import fs from "fs"
 
 // get all the dependencies for the markdown file
 // eg. images, scripts, stylesheets, transclusions
@@ -91,6 +92,7 @@ export const ContentPage: QuartzEmitterPlugin<Partial<FullPageLayout>> = (userOp
       let containsIndex = false
       for (const [tree, file] of content) {
         const slug = file.data.slug!
+
         if (slug === "index") {
           containsIndex = true
         }
@@ -119,7 +121,13 @@ export const ContentPage: QuartzEmitterPlugin<Partial<FullPageLayout>> = (userOp
       if (!containsIndex && !ctx.argv.fastRebuild) {
         console.log(
           chalk.yellow(
-            `\nWarning: you seem to be missing an \`index.md\` home page file at the root of your \`${ctx.argv.directory}\` folder. This may cause errors when deploying.`,
+            `\nWarning: you seem to be missing an \`
+      index.md\` home page file at the root of your \`$
+        {
+          ctx.argv.directory
+        }
+      \` folder. This may cause errors when deploying.
+        `,
           ),
         )
       }

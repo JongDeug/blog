@@ -2,7 +2,6 @@
 title: Part 2. 블로그 생성
 draft: false
 tags:
-  - 블로그
   - blog
   - quartz
   - github

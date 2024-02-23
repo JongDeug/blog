@@ -2,7 +2,6 @@
 title: Part 3. 블로글 설정 및 디자인
 draft: false
 tags:
-  - 블로그
   - blog
   - quartz
   - obsidian

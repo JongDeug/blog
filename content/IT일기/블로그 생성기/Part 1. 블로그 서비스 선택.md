@@ -2,7 +2,6 @@
 title: Part 1. 블로그 서비스 선택
 draft: false
 tags:
-  - 블로그
   - blog
   - quartz
   - obsidian

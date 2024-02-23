@@ -2,7 +2,6 @@
 title: Part 4. 블로그 검색 노출
 draft: false
 tags:
-  - 블로그
   - blog
   - quartz
   - obsidian

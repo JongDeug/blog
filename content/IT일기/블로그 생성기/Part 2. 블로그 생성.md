@@ -54,12 +54,15 @@ git remote add origin <레포지토리 HTTPS or SSH>
 
 마지막으로 `npx quartz sync --no-pull`를 명령어를 이용해 저장소에 파일을 올립니다.
 
-### Step 3 Obisidian 설정 및 게시글 올리기
+### Step 3 Obsidian 설정 및 게시글 올리기
 
-Obisidian 앱에서 해당 프로젝트 폴더로 이동합니다.
+Obsidian 앱에서 해당 프로젝트 폴더로 이동합니다.
 
 Templater 설치
 ![[Screenshot from 2024-02-21 22-16-53.png]]
+
+Longform 설치
+![[Pasted image 20240223092904.png]]
 
 프로젝트 폴더에 `templates` 폴더 생성 => 우클릭 새 노트(제목 post)
 ![[Pasted image 20240221222812.png]]
@@ -67,23 +70,26 @@ Templater 설치
 노트 상단에 아래 텍스트 추가(참고로 글 작성할 때 `draft`를 체크하면 블로그에 올라가지 않습니다.)
 ```
 ---
-title: 
+title: <% tp.file.title %>
 draft: false
 tags: 
 date:
 ---
 ```
 
-![[Pasted image 20240223084650.png]]
+![[Pasted image 20240223094303.png]]
 
-`content` 폴더 안에 테스트 폴더 생성 => 우클릭 Create new note from template
-![[Screenshot from 2024-02-23 08-47-16 1.png]]
+설정 => New scene template => `templates/post.md`
+![[Pasted image 20240223093204.png]]
 
-post 선택
-![[Screenshot from 2024-02-23 08-47-25.png]]
+`content` 우클릭 => Create Longform Project
+![[Pasted image 20240223094338.png]]
 
-참고로 파일 이름이 `url` 경로이고, `title`은 게시글 제목이 될 것입니다. 그냥 똑같이 쓰는 것을 추천 드립니다.
-![[Pasted image 20240223090504.png]]
+Create
+![[Pasted image 20240223094355.png]]
+
+좌측 상단 메뉴에서 Longform 메뉴 클릭 => Scenes => 테스트 파일 생성 => 지정한 `post.md` 템플릿으로 생성되는지 확인
+![[Pasted image 20240223093946.png]]
 
 이제  `npx quartz build --serve` 명령어를 통해 현 상태를 잠시 확인해봅시다.
 

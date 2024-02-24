@@ -20,7 +20,7 @@ import { options } from "./util/sourcemap"
 import { Mutex } from "async-mutex"
 import DepGraph from "./depgraph"
 import { getStaticResourcesFromPlugins } from "./plugins"
-import { EditLongform } from "./plugins/emitters/helpers"
+import { createIndexMd } from "./plugins/emitters/helpers"
 
 type Dependencies = Record<string, DepGraph<FilePath> | null>
 
@@ -47,8 +47,8 @@ async function buildQuartz(argv: Argv, mut: Mutex, clientRefresh: () => void) {
     allSlugs: [],
   }
 
-  // Edit Longform Index.md
-  await EditLongform()
+  // Create index.md
+  await createIndexMd()
 
   const perf = new PerfTimer()
   const output = argv.output

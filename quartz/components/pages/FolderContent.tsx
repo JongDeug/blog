@@ -1,13 +1,11 @@
 import { QuartzComponentConstructor, QuartzComponentProps } from "../types"
 import path from "path"
-
 import style from "../styles/listPage.scss"
 import { PageList } from "../PageList"
 import { stripSlashes, simplifySlug, FilePath } from "../../util/path"
 import { Root } from "hast"
 import { htmlToJsx } from "../../util/jsx"
 import { i18n } from "../../i18n"
-import DepGraph from "../../depgraph"
 
 interface FolderContentOptions {
   /**

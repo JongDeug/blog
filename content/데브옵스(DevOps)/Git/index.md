@@ -1,11 +1,4 @@
 ---
-longform:
-  format: scenes
-  title: Git
-  workflow: Default Workflow
-  sceneFolder: /
-  scenes: []
-  ignoredFiles: []
 title: Git
+tag: Git,데브옵스DevOps
 ---
-

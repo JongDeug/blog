@@ -2,9 +2,9 @@
 title: Part 1. 블로그 서비스 선택
 draft: false
 tags:
-  - blog
   - quartz
   - obsidian
+  - "#블로그-생성기"
 date: 2024-02-20
 ---
 

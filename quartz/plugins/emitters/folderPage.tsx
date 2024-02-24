@@ -13,7 +13,7 @@ import {
   stripSlashes,
   joinSegments,
   pathToRoot,
-  simplifySlug, isRelativeURL,
+  simplifySlug,
 } from "../../util/path"
 import { defaultListPageLayout, sharedPageComponents } from "../../../quartz.layout"
 import { FolderContent } from "../../components"

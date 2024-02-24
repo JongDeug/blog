@@ -1,11 +1,4 @@
 ---
-longform:
-  format: scenes
-  title: 자료구조
-  workflow: Default Workflow
-  sceneFolder: /
-  scenes: []
-  ignoredFiles: []
 title: 자료구조
+tag: 자료구조,컴퓨터-과학CS
 ---
-

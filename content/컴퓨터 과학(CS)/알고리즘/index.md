@@ -1,11 +1,4 @@
 ---
-longform:
-  format: scenes
-  title: 알고리즘
-  workflow: Default Workflow
-  sceneFolder: /
-  scenes: []
-  ignoredFiles: []
 title: 알고리즘
+tag: 알고리즘,컴퓨터-과학CS
 ---
-

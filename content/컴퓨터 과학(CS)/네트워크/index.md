@@ -1,11 +1,4 @@
 ---
-longform:
-  format: scenes
-  title: 네트워크
-  workflow: Default Workflow
-  sceneFolder: /
-  scenes: []
-  ignoredFiles: []
 title: 네트워크
+tag: 네트워크,컴퓨터-과학CS
 ---
-

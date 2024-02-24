@@ -2,10 +2,10 @@
 title: Part 2. 블로그 생성
 draft: false
 tags:
-  - blog
   - quartz
   - github
   - obsidian
+  - 블로그-생성기
 date: 2024-02-21
 ---
 
@@ -60,9 +60,6 @@ Obsidian 앱에서 해당 프로젝트 폴더로 이동합니다.
 Templater 설치
 ![[Screenshot from 2024-02-21 22-16-53.png]]
 
-Longform 설치
-![[Pasted image 20240223092904.png]]
-
 프로젝트 폴더에 `templates` 폴더 생성 => 우클릭 새 노트(제목 post)
 ![[Pasted image 20240221222812.png]]
 
@@ -79,17 +76,10 @@ date:
 
 ![[Pasted image 20240223094303.png]]
 
-설정 => New scene template => `templates/post.md`
-![[Pasted image 20240223093204.png]]
+`content` 폴더에 `테스트` 폴더 생성
+![[Pasted image 20240224182257.png]]
 
-`content` 우클릭 => Create Longform Project
-![[Pasted image 20240223094338.png]]
-
-Create
-![[Pasted image 20240223094355.png]]
-
-좌측 상단 메뉴에서 Longform 메뉴 클릭 => Scenes => 테스트 파일 생성 => 지정한 `post.md` 템플릿으로 생성되는지 확인
-![[Pasted image 20240223093946.png]]
+![[Pasted image 20240224182539.png]]
 
 이제 `npx quartz build --serve` 명령어를 통해 현 상태를 잠시 확인해봅시다.
 

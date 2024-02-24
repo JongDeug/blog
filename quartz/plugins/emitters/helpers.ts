@@ -2,7 +2,6 @@ import path from "path"
 import fs from "fs"
 import { BuildCtx } from "../../util/ctx"
 import { FilePath, FullSlug, joinSegments } from "../../util/path"
-import matter from "gray-matter"
 
 type WriteOptions = {
   ctx: BuildCtx
@@ -19,31 +18,51 @@ export const write = async ({ ctx, slug, ext, content }: WriteOptions): Promise<
   return pathToPage
 }
 
-// Edit Longform Index.md
-export const EditLongform = async () => {
+// Create index.md
+export const createIndexMd = async () => {
   const contentItems = await fs.promises.readdir("content", {
     encoding: "utf-8",
     recursive: true,
     withFileTypes: true,
   })
+
+  // index.md 생성
   for (let item of contentItems) {
-    if (item.isFile() && item.name.toLowerCase() === "index.md" && item.path !== "content") {
-      try {
-        const itemFilePath = path.join(item.path, item.name)
-        const file = await fs.promises.readFile(itemFilePath)
+    try {
+      if (!item.isFile() && item.name !== "image") {
+        const dir = path.join(item.path, item.name, "index.md")
 
-        // title property 추가
-        const frontMatter = matter(file)
-        frontMatter.data["title"] = frontMatter.data.longform.title
-        await fs.promises.writeFile(itemFilePath, frontMatter.stringify(""))
+        // tag 처리 1차: 폴더이름, 2차: 상위 폴더이름
+        let tag: string[] = []
 
-        // Index -> index 변경
-        const oldPath = path.join(item.path, item.name)
-        const newPath = path.join(item.path, "index.md")
-        await fs.promises.rename(oldPath, newPath)
-      } catch(err) {
-        console.log(err)
+        // 1차
+        let current = filterTag(item.name)
+        tag.push(current)
+
+        // 2차
+        const parentItem = item.path.split("/")
+        if (parentItem[parentItem.length - 1] !== "content") {
+          let parent = filterTag(parentItem[parentItem.length - 1])
+          tag.push(parent)
+        }
+
+        await fs.promises.writeFile(dir, `---\ntitle: ${item.name}\ntag: ${tag}\n---`)
       }
+    } catch (e) {
+      console.log(e)
     }
   }
+}
+
+const filterTag = (item: string) => {
+  let result: string[] = []
+
+  item.split("").map(r => {
+    if (r !== "(" && r !== ")") {
+      if (r == " ") result.push("-")
+      else result.push(r)
+    }
+  })
+
+  return result.join('')
 }

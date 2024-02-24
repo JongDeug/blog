@@ -1,11 +1,4 @@
 ---
-longform:
-  format: scenes
-  title: Java
-  workflow: Default Workflow
-  sceneFolder: /
-  scenes: []
-  ignoredFiles: []
 title: Java
+tag: Java,언어Language
 ---
-

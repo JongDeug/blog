@@ -2,7 +2,7 @@
 title: Part 0. 블로그 운영 이유
 draft: false
 tags:
-  - blog
+  - "#블로그-생성기"
 date: 2024-02-20
 ---
 

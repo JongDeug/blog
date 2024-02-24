@@ -1,11 +1,4 @@
 ---
-longform:
-  format: scenes
-  title: 데이터베이스
-  workflow: Default Workflow
-  sceneFolder: /
-  scenes: []
-  ignoredFiles: []
 title: 데이터베이스
+tag: 데이터베이스,컴퓨터-과학CS
 ---
-

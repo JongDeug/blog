@@ -1,11 +1,4 @@
 ---
-longform:
-  format: scenes
-  title: 웹
-  workflow: Default Workflow
-  sceneFolder: /
-  scenes: []
-  ignoredFiles: []
 title: 웹
+tag: 웹,컴퓨터-과학CS
 ---
-

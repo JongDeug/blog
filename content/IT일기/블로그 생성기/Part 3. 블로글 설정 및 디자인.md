@@ -5,6 +5,7 @@ tags:
   - blog
   - quartz
   - obsidian
+  - 블로그-생성기
 date: 2024-02-21
 ---
 
@@ -33,7 +34,7 @@ date: 2024-02-21
 quartz에서 `build`를 하고 나면 `content` 내용물이 `html` 파일로 변환되어 `public`에 저장됩니다. 따라서 폴더 및 파일 경로에 따라 `url`이 생성되고, `slug` 변수를 통해 경로를 다룰 수 있습니다.
 
 ##### ⚠️ 문제 
-quartz에서 폴더 안에 파일이 있는 경우 폴더 `index.html`이 자동으로 생성됩니다. 하지만 파일이 없는 폴더의 경우(+ 폴더만 있는 경우도 포함) `index.html`을 생성하지 않습니다. 
+quartz에서 폴더 안에 파일이 있는 경우 폴더 `index.html`이 자동으로 생성됩니다. 하지만 파일이 없는 폴더의 경우(+ 폴더만 있는 경우) `index.html`을 생성하지 않습니다. 
 
 폴더 구조로 설명 드리자면, 
 
@@ -63,12 +64,12 @@ public/
 
 공식 문서 참조
 
-	You can override this by creating an `index.md` file in the folder with the `title` front- matter  field.
+	You can override this by creating an `index.md` file in the folder with the `title` front- matter field.
 
 > [!info] 첫 번째 방법
 > 
 
- 사실 제일 쉬운 방법은 모든 폴더에 `index.html`과 `title` property를 추가하면 됩니다. Longform 플러그인을 통해 만들어진 `Index.md`를 `index.md`로 변경하고 `title` property를 추가하면 해결됩니다. **하지만! 너무 귀찮습니다.**  
+ 사실 제일 쉬운 방법은 모든 폴더에 직접 `index.html`과 `title` property를 추가하면 됩니다. **하지만! 너무 귀찮습니다.**  
 
 
 > [!info] 두 번째 방법
@@ -77,36 +78,54 @@ public/
  저는 첫 번째 방법을 자동화하는 방법을 선택했습니다.
  
  
-```typescript title="프로젝트폴더/quartz/plugin/emitters/helpers.ts" {3-30}
+```typescript title="프로젝트폴더/quartz/plugin/emitters/helpers.ts" {2-48}
 ...
-
-// Edit Longform Index.md  
-export const EditLongform = async () => {  
+// Create index.md  
+export const createIndexMd = async () => {  
   const contentItems = await fs.promises.readdir("content", {  
     encoding: "utf-8",  
     recursive: true,  
     withFileTypes: true,  
   })  
+  
+  // index.md 생성  
   for (let item of contentItems) {  
-    if (item.isFile() && item.name.toLowerCase() === "index.md" && item.path !== "content") {  
-      try {  
-        const itemFilePath = path.join(item.path, item.name)  
-        const file = await fs.promises.readFile(itemFilePath)  
+    try {  
+      if (!item.isFile() && item.name !== "image") {  
+        const dir = path.join(item.path, item.name, "index.md")  
   
-        // title property 추가  
-        const frontMatter = matter(file)  
-        frontMatter.data["title"] = frontMatter.data.longform.title  
-        await fs.promises.writeFile(itemFilePath, frontMatter.stringify(""))  
+        // tag 처리 1차: 폴더이름, 2차: 상위 폴더이름  
+        let tag: string[] = []  
   
-        // Index -> index 변경  
-        const oldPath = path.join(item.path, item.name)  
-        const newPath = path.join(item.path, "index.md")  
-        await fs.promises.rename(oldPath, newPath)  
-      } catch(err) {  
-        console.log(err)  
-      }   
+        // 1차  
+        let current = filterTag(item.name)  
+        tag.push(current)  
+  
+        // 2차  
+        const parentItem = item.path.split("/")  
+        if (parentItem[parentItem.length - 1] !== "content") {  
+          let parent = filterTag(parentItem[parentItem.length - 1])  
+          tag.push(parent)  
+        }  
+  
+        await fs.promises.writeFile(dir, `---\ntitle: ${item.name}\ntag: ${tag}\n---`)  
+      }  
+    } catch (e) {  
+      console.log(e)  
+    }  }  
+}  
+  
+const filterTag = (item: string) => {  
+  let result: string[] = []  
+  
+  item.split("").map(r => {  
+    if (r !== "(" && r !== ")") {  
+      if (r == " ") result.push("-")  
+      else result.push(r)  
     }  
-  }  
+  })  
+  
+  return result.join('')  
 }
 ```
 
@@ -120,8 +139,8 @@ async function buildQuartz(argv: Argv, mut: Mutex, clientRefresh: () => void) {
     allSlugs: [],  
   }  
   
-  // Edit Longform Index.md
-  await EditLongform()
+  // Create index.md  
+  await createIndexMd()
 
 ...
 ```

@@ -46,7 +46,7 @@ export const createIndexMd = async () => {
           tag.push(parent)
         }
 
-        await fs.promises.writeFile(dir, `---\ntitle: ${item.name}\ntag: ${tag}\n---`)
+        await fs.promises.writeFile(dir, `---\ntitle: ${item.name}\ntag: ${tag}\ndate: 2024-02-19\n---`)
       }
     } catch (e) {
       console.log(e)

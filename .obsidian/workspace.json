@@ -11,8 +11,12 @@
             "id": "317500bf79248fc8",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {}
+              "type": "markdown",
+              "state": {
+                "file": "content/컴퓨터 과학(CS)/알고리즘/알고리즘 해결 절차.md",
+                "mode": "source",
+                "source": false
+              }
             }
           }
         ]
@@ -81,6 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "content/컴퓨터 과학(CS)/알고리즘/알고리즘 해결 절차.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -97,6 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "content/컴퓨터 과학(CS)/알고리즘/알고리즘 해결 절차.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -118,7 +124,9 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {}
+              "state": {
+                "file": "content/컴퓨터 과학(CS)/알고리즘/알고리즘 해결 절차.md"
+              }
             }
           }
         ]
@@ -141,12 +149,30 @@
   },
   "active": "317500bf79248fc8",
   "lastOpenFiles": [
+    "public/404.html",
+    "public/image/Screenshot-from-2024-02-23-08-47-25.png",
+    "public/image/Screenshot-from-2024-02-23-08-47-16.png",
+    "public/image/Screenshot-from-2024-02-23-08-47-16-1.png",
+    "public/image/Screenshot-from-2024-02-21-22-16-53.png",
+    "public/image/Screenshot-from-2024-02-21-22-16-43.png",
+    "public/image/Pasted-image-20240226210656.png",
+    "public/image/Pasted-image-20240224182539.png",
+    "public/image/Pasted-image-20240224182257.png",
+    "public/image/Pasted-image-20240223094355.png",
+    "public/image/Pasted-image-20240223094338.png",
+    "public/image",
+    "public/googlef805084d837064c8.html",
+    "public/static/contentIndex.json",
+    "public/static",
+    "public/index.xml",
+    "public/sitemap.xml",
+    "public/tags/회고.html",
+    "public/tags/프레임워크Framework.html",
+    "public/tags/컴퓨터-과학CS.html",
+    "public/tags/자료구조.html",
     "content/데브옵스(DevOps)/Git/index.md",
     "content/데브옵스(DevOps)/index.md",
-    "content/데브옵스(DevOps)/Git",
-    "content/데브옵스(DevOps)",
     "content/독서/index.md",
-    "content/독서",
     "content/언어(Language)/Java/카드 번호 맞추기 게임(up & down game).md",
     "content/언어(Language)/Java/영어 단어 테스트 프로그램.md",
     "content/언어(Language)/Java/index.md",
@@ -156,24 +182,8 @@
     "content/언어(Language)/C/간단한 미로 찾기 게임.md",
     "content/언어(Language)/C/index.md",
     "content/언어(Language)/index.md",
-    "content/언어(Language)/Java",
-    "content/언어(Language)/C",
-    "content/언어(Language)",
     "content/Projects.md",
     "content/프레임워크(Framework)/index.md",
-    "content/프레임워크(Framework)",
-    "content/googlef805084d837064c8.html",
-    "content/image/Screenshot from 2024-02-23 08-47-25.png",
-    "content/image/Screenshot from 2024-02-23 08-47-16.png",
-    "content/image/Screenshot from 2024-02-23 08-47-16 1.png",
-    "content/image/Screenshot from 2024-02-21 22-16-53.png",
-    "content/image/Screenshot from 2024-02-21 22-16-43.png",
-    "content/image/Pasted image 20240226210656.png",
-    "content/image/Pasted image 20240224182539.png",
-    "content/image/Pasted image 20240224182257.png",
-    "content/image/Pasted image 20240223094355.png",
-    "content/image/Pasted image 20240223094338.png",
-    "content/image",
     "content/IT일기/회고/index.md",
     "content/IT일기/블로그 생성기/index.md",
     "content/IT일기/블로그 생성기/Part 4. 블로그 검색 노출.md",
@@ -181,11 +191,9 @@
     "content/IT일기/블로그 생성기/Part 1. 블로그 서비스 선택.md",
     "content/IT일기/블로그 생성기/Part 2. 블로그 생성.md",
     "content/IT일기/블로그 생성기/Part 0. 블로그 운영 이유.md",
-    "content/IT일기/회고",
     "content/IT일기/index.md",
     "content/About Me.md",
     "content/index.md",
-    "content/컴퓨터 과학(CS)/자료구조/연결 리스트로 구현한 다항식 덧셈 프로그램.md",
-    "content/컴퓨터 과학(CS)/자료구조/역순 연결 리스트(reverse linked list).md"
+    "content/컴퓨터 과학(CS)/자료구조/연결 리스트로 구현한 다항식 덧셈 프로그램.md"
   ]
 }

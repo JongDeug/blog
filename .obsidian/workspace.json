@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "content/컴퓨터 과학(CS)/알고리즘/알고리즘 해결 절차.md",
+                "file": "content/언어(Language)/C/환율 계산기 프로그램(달러, 원).md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "content/컴퓨터 과학(CS)/알고리즘/알고리즘 해결 절차.md",
+                "file": "content/언어(Language)/C/환율 계산기 프로그램(달러, 원).md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "content/컴퓨터 과학(CS)/알고리즘/알고리즘 해결 절차.md",
+                "file": "content/언어(Language)/C/환율 계산기 프로그램(달러, 원).md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "content/컴퓨터 과학(CS)/알고리즘/알고리즘 해결 절차.md"
+                "file": "content/언어(Language)/C/환율 계산기 프로그램(달러, 원).md"
               }
             }
           }
@@ -149,27 +149,40 @@
   },
   "active": "317500bf79248fc8",
   "lastOpenFiles": [
+    "content/언어(Language)/C/순환을 이용한 최댓값 구하기.md",
+    "content/언어(Language)/C/달력 만들기.md",
+    "content/언어(Language)/C/간단한 미로 찾기 게임.md",
+    "content/IT일기/블로그 생성기/Part 4. 블로그 검색 노출.md",
+    "content/IT일기/블로그 생성기/Part 3. 블로글 설정 및 디자인.md",
+    "content/IT일기/블로그 생성기/Part 2. 블로그 생성.md",
+    "content/IT일기/블로그 생성기/Part 1. 블로그 서비스 선택.md",
+    "content/IT일기/블로그 생성기/Part 0. 블로그 운영 이유.md",
+    "content/IT일기/리눅스 배포판 세팅/Part 1. Pop!_OS 설치.md",
+    "content/IT일기/리눅스 배포판 세팅/Part 0. 리눅스를 사용하는 이유.md",
+    "public/tags.html",
     "public/404.html",
-    "public/image/Screenshot-from-2024-02-23-08-47-25.png",
-    "public/image/Screenshot-from-2024-02-23-08-47-16.png",
-    "public/image/Screenshot-from-2024-02-23-08-47-16-1.png",
-    "public/image/Screenshot-from-2024-02-21-22-16-53.png",
-    "public/image/Screenshot-from-2024-02-21-22-16-43.png",
-    "public/image/Pasted-image-20240226210656.png",
-    "public/image/Pasted-image-20240224182539.png",
-    "public/image/Pasted-image-20240224182257.png",
-    "public/image/Pasted-image-20240223094355.png",
-    "public/image/Pasted-image-20240223094338.png",
+    "public/image/Screenshot-from-2024-03-09-13-26-13.png",
+    "public/image/Screenshot-from-2024-03-09-13-26-06.png",
+    "public/image/Screenshot-from-2024-03-09-13-25-00.png",
+    "public/image/Screenshot-from-2024-03-09-13-16-45.png",
+    "public/image/Screenshot-from-2024-03-09-13-15-35.png",
+    "public/image/Screenshot-from-2024-03-09-13-13-51.png",
+    "public/image/Screenshot-from-2024-03-09-12-48-06.png",
+    "public/image/Screenshot-from-2024-03-09-12-12-07.png",
+    "public/image/Screenshot-from-2024-03-09-11-08-10.png",
+    "public/image/Screenshot-from-2024-03-09-10-57-53.png",
     "public/image",
     "public/googlef805084d837064c8.html",
     "public/static/contentIndex.json",
     "public/static",
     "public/index.xml",
     "public/sitemap.xml",
-    "public/tags/회고.html",
-    "public/tags/프레임워크Framework.html",
-    "public/tags/컴퓨터-과학CS.html",
-    "public/tags/자료구조.html",
+    "public/index.html",
+    "public/Projects.html",
+    "content/IT일기/리눅스 배포판 세팅/Part 2. Pop!_OS 세팅.md",
+    "content/IT일기/리눅스 배포판 세팅/index.md",
+    "content/IT일기/리눅스 배포판 세팅/데비안 명령어.md",
+    "content/IT일기/블로그 생성기/index.md",
     "content/데브옵스(DevOps)/Git/index.md",
     "content/데브옵스(DevOps)/index.md",
     "content/독서/index.md",
@@ -177,23 +190,10 @@
     "content/언어(Language)/Java/영어 단어 테스트 프로그램.md",
     "content/언어(Language)/Java/index.md",
     "content/언어(Language)/C/환율 계산기 프로그램(달러, 원).md",
-    "content/언어(Language)/C/순환을 이용한 최댓값 구하기.md",
-    "content/언어(Language)/C/달력 만들기.md",
-    "content/언어(Language)/C/간단한 미로 찾기 게임.md",
     "content/언어(Language)/C/index.md",
     "content/언어(Language)/index.md",
     "content/Projects.md",
     "content/프레임워크(Framework)/index.md",
-    "content/IT일기/회고/index.md",
-    "content/IT일기/블로그 생성기/index.md",
-    "content/IT일기/블로그 생성기/Part 4. 블로그 검색 노출.md",
-    "content/IT일기/블로그 생성기/Part 3. 블로글 설정 및 디자인.md",
-    "content/IT일기/블로그 생성기/Part 1. 블로그 서비스 선택.md",
-    "content/IT일기/블로그 생성기/Part 2. 블로그 생성.md",
-    "content/IT일기/블로그 생성기/Part 0. 블로그 운영 이유.md",
-    "content/IT일기/index.md",
-    "content/About Me.md",
-    "content/index.md",
-    "content/컴퓨터 과학(CS)/자료구조/연결 리스트로 구현한 다항식 덧셈 프로그램.md"
+    "content/IT일기/회고/index.md"
   ]
 }

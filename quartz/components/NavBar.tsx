@@ -26,6 +26,9 @@ const NavBar: QuartzComponent = (props: QuartzComponentProps) => {
         <li>
           <a href={`${baseDir}/About-Me`}>🔎 About</a>
         </li>
+        <li>
+          <a href="https://github.com/JongDeug" target="_blank">⚡ Github</a>
+        </li>
       </ul>
 
       <Darkmode {...props} children={props.children} />

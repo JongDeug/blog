@@ -40,9 +40,9 @@ export const createIndexMd = async () => {
         tag.push(current)
 
         // 2차
-        const parentItem = item.path.split("/")
-        if (parentItem[parentItem.length - 1] !== "content") {
-          let parent = filterTag(parentItem[parentItem.length - 1])
+        const parentFolders = item.path.split("/")
+        if (parentFolders[parentFolders.length - 1] !== "content") {
+          let parent = filterTag(parentFolders[parentFolders.length - 1])
           tag.push(parent)
         }
 
@@ -64,5 +64,5 @@ const filterTag = (item: string) => {
     }
   })
 
-  return result.join('')
+  return result.join("")
 }

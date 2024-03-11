@@ -45,7 +45,8 @@ function subtotals(arr) {
 
 연산의 개수를 모두 측정하는 것이 아니라 Input에 따라 코드가 몇 번 실행했는지 측정하면 됩니다.  => ==O(n^2)==
 
-![[Pasted image 20240311155353.png]]
+![[Pasted image 20240311173651.png]]
+출처 : https://www.researchgate.net/figure/Big-O-time-complexity-chart-based-feature-selection-a-Big-O-complexity-chart-b-Time_fig3_371457259
 
 ## 요약
 
@@ -53,3 +54,9 @@ function subtotals(arr) {
 - Big O 표기법을 활용하면 시간과 공간 복잡도에 대한 이해를 높일 수 있습니다.
 - Big O 표기법은 전체적인 추세에만 관심이 있고 정밀도에 대해서는 크게 신경 쓰지 않습니다.
 - 공간 복잡도와 시간 복잡도는 알고리즘에만 의존하며, 알고리즘을 실행하는 데 사용된 하드웨어에는 의존하지 않습니다.
+
+---
+
+**참고 자료(강의)**
+
+[Colt Steele](https://www.udemy.com/user/coltsteele/), [JavaScript Algorithms and Data Structures Masterclass](https://www.udemy.com/course/js-algorithms-and-data-structures-masterclass/), Udemy

@@ -45,7 +45,7 @@ function subtotals(arr) {
 
 연산의 개수를 모두 측정하는 것이 아니라 Input에 따라 코드가 몇 번 실행했는지 측정하면 됩니다.  => ==O(n^2)==
 
-![[Pasted image 20240226210656.png]]
+![[Pasted image 20240311155353.png]]
 
 ## 요약
 

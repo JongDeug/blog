@@ -27,7 +27,7 @@ date: 2024-02-26
 
 ## 해결 : Big O 표기법
 
-Big O 표기법을 통해 이러한 문제를 해결할 수 있습니다. Big O 표기법은 알고리즘의 효율성을 표기해 주는 표기법입니다. Big O 표기법에서 ==연산의 개수를 측정하는 것보다 Input에 따라 코드가 몇 번 실행됐는지가 더 중요합니다. 따라서 최고차항과 전체적인 추세만 신경 쓰면 됩니다.==
+Big O 표기법을 통해 이러한 문제를 해결할 수 있습니다. Big O 표기법은 알고리즘의 효율성을 표기해 주는 표기법입니다. Big O 표기법에서 ==연산의 개수를 측정하는 것보다 코드가 Input에 따라 몇 번 실행됐는지가 더 중요합니다. 따라서 최고차항과 전체적인 추세만 신경 쓰면 됩니다.==
 
 ```js
 function subtotals(arr) {
@@ -43,7 +43,7 @@ function subtotals(arr) {
 }
 ```
 
-연산의 개수를 모두 측정하는 것이 아니라 Input에 따라 코드가 몇 번 실행했는지 측정하면 됩니다.  => ==O(n^2)==
+Input에 따라 코드가 몇 번 실행했는지 측정하면 되므로 ==O(n^2)== 시간 복잡도를 가집니다.
 
 ![[Pasted image 20240311173651.png]]
 출처 : https://www.researchgate.net/figure/Big-O-time-complexity-chart-based-feature-selection-a-Big-O-complexity-chart-b-Time_fig3_371457259

@@ -3,6 +3,7 @@ import { QuartzComponentConstructor, QuartzComponentProps } from "./types"
 import readingTime from "reading-time"
 import { classNames } from "../util/lang"
 import { i18n } from "../i18n"
+import { FullSlug, simplifySlug } from "../util/path"
 
 interface ContentMetaOptions {
   /**
@@ -21,8 +22,9 @@ export default ((opts?: Partial<ContentMetaOptions>) => {
 
   function ContentMetadata({ cfg, fileData, displayClass }: QuartzComponentProps) {
     const text = fileData.text
+    const slug = fileData.slug // 추가
 
-    if (text) {
+    if (text && simplifySlug(slug!) !== "/") {
       const segments: string[] = []
 
       if (fileData.dates) {

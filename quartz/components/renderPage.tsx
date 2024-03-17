@@ -235,14 +235,20 @@ export function renderPage(
         <div className="center">
           <div className="page-header">
             <div className="popover-hint">
-              {simplifySlug(slug) === "/" ?
-                null :
-                beforeBody.map((BodyComponent) => (
+              {beforeBody.map((BodyComponent) => (
                 <div>
                   {BodyComponent.displayName}
-                  <BodyComponent {...componentData}/>
+                  <BodyComponent {...componentData} />
                 </div>
               ))}
+              {/*{simplifySlug(slug) === "/" ?*/}
+              {/*  null :*/}
+              {/*  beforeBody.map((BodyComponent) => (*/}
+              {/*  <div>*/}
+              {/*    {BodyComponent.displayName}*/}
+              {/*    <BodyComponent {...componentData}/>*/}
+              {/*  </div>*/}
+              {/*))}*/}
             </div>
           </div>
           <Content {...componentData} />

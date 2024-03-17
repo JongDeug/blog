@@ -13,13 +13,26 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "content/IT일기/리눅스 배포판 사용기/리눅스 관련 지식/리눅스 패키지 의존성(Linux Package Dependencies).md",
+                "file": "content/컴퓨터 과학(CS)/알고리즘/정렬(Sort).md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "d2c714da3f3ccddd",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "content/index.md",
                 "mode": "source",
                 "source": false
               }
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -85,7 +98,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "content/IT일기/리눅스 배포판 사용기/리눅스 관련 지식/리눅스 패키지 의존성(Linux Package Dependencies).md",
+                "file": "content/index.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +115,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "content/IT일기/리눅스 배포판 사용기/리눅스 관련 지식/리눅스 패키지 의존성(Linux Package Dependencies).md",
+                "file": "content/index.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +138,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "content/IT일기/리눅스 배포판 사용기/리눅스 관련 지식/리눅스 패키지 의존성(Linux Package Dependencies).md"
+                "file": "content/index.md"
               }
             }
           }
@@ -147,53 +160,53 @@
       "templater-obsidian:Templater": false
     }
   },
-  "active": "317500bf79248fc8",
+  "active": "d2c714da3f3ccddd",
   "lastOpenFiles": [
-    "content/IT일기/Trouble Shooting/WSL npm 속도.md",
-    "content/컴퓨터 과학(CS)/알고리즘/알고리즘 해결 절차.md",
-    "content/컴퓨터 과학(CS)/알고리즘/Big O 표기법.md",
+    "public/404.html",
+    "public/googlef805084d837064c8.html",
+    "public/index.xml",
+    "public/sitemap.xml",
+    "public/프레임워크(Framework)/index.html",
+    "public/프레임워크(Framework)",
+    "public/index.html",
+    "public/Projects.html",
+    "public/About-Me.html",
+    "public/postscript.js",
+    "public/prescript.js",
+    "public/image/Screenshot-from-2024-03-09-13-26-13.png",
+    "public/image/Screenshot-from-2024-03-09-13-26-06.png",
+    "public/image/Screenshot-from-2024-03-09-13-25-00.png",
+    "public/image/Screenshot-from-2024-03-09-13-16-45.png",
+    "public/image/Screenshot-from-2024-03-09-13-15-35.png",
+    "public/image/Screenshot-from-2024-03-09-13-13-51.png",
+    "public/image/Screenshot-from-2024-03-09-12-48-06.png",
+    "public/image/Screenshot-from-2024-03-09-12-12-07.png",
+    "public/image/Screenshot-from-2024-03-09-11-08-10.png",
+    "public/image/Screenshot-from-2024-03-09-10-57-53.png",
     "content/컴퓨터 과학(CS)/알고리즘/일반적인 문제 해결 패턴.md",
+    "content/index.md",
     "content/컴퓨터 과학(CS)/알고리즘/정렬(Sort).md",
-    "content/image/Pasted image 20240312185339.png",
-    "문제 해결을 위한 절차.md",
-    "일반적인 문제 해결 패턴.md",
-    "content/IT일기/리눅스 배포판 사용기/리눅스 관련 지식/리눅스 패키지 의존성(Linux Package Dependencies).md",
-    "content/IT일기/리눅스 배포판 사용기/리눅스 관련 지식/데비안 명령어.md",
-    "content/IT일기/리눅스 배포판 사용기/리눅스 관련 지식/index.md",
-    "content/컴퓨터 과학(CS)/자료구조/연결 리스트로 구현한 다항식 덧셈 프로그램.md",
-    "content/컴퓨터 과학(CS)/자료구조/역순 연결 리스트(reverse linked list).md",
-    "content/컴퓨터 과학(CS)/자료구조/index.md",
-    "content/컴퓨터 과학(CS)/자료구조/Queue를 이용한 은행 시뮬레이션 프로그램.md",
-    "content/컴퓨터 과학(CS)/웹/index.md",
-    "content/컴퓨터 과학(CS)/운영체제/index.md",
-    "content/컴퓨터 과학(CS)/알고리즘/index.md",
-    "content/컴퓨터 과학(CS)/데이터베이스/index.md",
-    "content/컴퓨터 과학(CS)/네트워크/index.md",
+    "content/컴퓨터 과학(CS)/index.md",
+    "content/데브옵스(DevOps)/Git/index.md",
+    "content/데브옵스(DevOps)/index.md",
+    "content/독서/index.md",
     "content/언어(Language)/Java/카드 번호 맞추기 게임(up & down game).md",
     "content/언어(Language)/Java/영어 단어 테스트 프로그램.md",
     "content/언어(Language)/Java/index.md",
     "content/언어(Language)/C/환율 계산기 프로그램(달러, 원).md",
     "content/언어(Language)/C/순환을 이용한 최댓값 구하기.md",
-    "content/언어(Language)/C/달력 만들기.md",
     "content/언어(Language)/C/간단한 미로 찾기 게임.md",
-    "content/IT일기/리눅스 배포판 사용기/리눅스 관련 지식",
-    "content/컴퓨터 과학(CS)/자료구조",
-    "content/컴퓨터 과학(CS)/웹",
-    "content/컴퓨터 과학(CS)/운영체제",
-    "content/컴퓨터 과학(CS)/알고리즘",
-    "content/컴퓨터 과학(CS)/데이터베이스",
-    "content/컴퓨터 과학(CS)/네트워크",
-    "content/언어(Language)/Java",
-    "content/언어(Language)/C",
-    "content/image/Screenshot from 2024-03-09 13-26-13.png",
-    "content/image/Screenshot from 2024-03-09 13-26-06.png",
-    "content/image/Screenshot from 2024-03-09 13-25-00.png",
-    "content/image/Screenshot from 2024-03-09 13-16-45.png",
-    "content/image/Screenshot from 2024-03-09 13-15-35.png",
-    "content/image/Screenshot from 2024-03-09 13-13-51.png",
-    "content/image/Screenshot from 2024-03-09 12-48-06.png",
-    "content/image/Screenshot from 2024-03-09 12-12-07.png",
-    "content/image/Screenshot from 2024-03-09 11-08-10.png",
-    "content/image/Big-O-time-complexity-chart-based-feature-selection-a-Big-O-complexity-chart-b-Time.ppm"
+    "content/언어(Language)/C/달력 만들기.md",
+    "content/언어(Language)/C/index.md",
+    "content/언어(Language)/index.md",
+    "content/Projects.md",
+    "content/프레임워크(Framework)/index.md",
+    "content/IT일기/리눅스 배포판 사용기/리눅스 관련 지식/리눅스 패키지 의존성(Linux Package Dependencies).md",
+    "content/IT일기/리눅스 배포판 사용기/리눅스 관련 지식/데비안 명령어.md",
+    "content/IT일기/리눅스 배포판 사용기/리눅스 관련 지식/index.md",
+    "content/IT일기/블로그 생성기/index.md",
+    "content/IT일기/블로그 생성기/Part 4. 블로그 검색 노출.md",
+    "content/IT일기/블로그 생성기/Part 3. 블로글 설정 및 디자인.md",
+    "content/IT일기/블로그 생성기/Part 2. 블로그 생성.md"
   ]
 }

@@ -11,8 +11,12 @@
             "id": "3b238ee11721517d",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {}
+              "type": "markdown",
+              "state": {
+                "file": "content/IT일기/블로그 생성기/Part 4. 블로그 검색 노출.md",
+                "mode": "source",
+                "source": false
+              }
             }
           }
         ]
@@ -65,7 +69,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 278.5
+    "width": 278.5,
+    "collapsed": true
   },
   "right": {
     "id": "936b0b51ae69f30b",
@@ -81,6 +86,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "content/IT일기/블로그 생성기/Part 4. 블로그 검색 노출.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -97,6 +103,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "content/IT일기/블로그 생성기/Part 4. 블로그 검색 노출.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -118,7 +125,9 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {}
+              "state": {
+                "file": "content/IT일기/블로그 생성기/Part 4. 블로그 검색 노출.md"
+              }
             }
           }
         ]
@@ -141,33 +150,19 @@
   },
   "active": "3b238ee11721517d",
   "lastOpenFiles": [
-    "quartz/components/AboutMe.tsx~",
-    "content/index.md",
-    "content/About Me.md",
+    "content/image/Pasted image 20240319185512.png",
+    "content/image/Pasted image 20240319185459.png",
+    "content/image/Pasted image 20240319185446.png",
+    "content/image/Pasted image 20240319185015.png",
+    "content/image/Screenshot from 2024-03-19 18-47-27.png",
+    "content/image/Pasted image 20240319184729.png",
     "content/컴퓨터 과학(CS)/알고리즘/정렬(Sort).md",
-    "public/404.html",
-    "public/googlef805084d837064c8.html",
-    "public/index.xml",
-    "public/sitemap.xml",
-    "public/index.html",
-    "public/Projects.html",
-    "public/About-Me.html",
-    "public/index.css",
-    "public/postscript.js",
-    "public/prescript.js",
-    "public/image/Screenshot-from-2024-03-09-13-26-13.png",
-    "public/image/Screenshot-from-2024-03-09-13-26-06.png",
-    "public/image/Screenshot-from-2024-03-09-13-25-00.png",
-    "public/image/Screenshot-from-2024-03-09-13-16-45.png",
-    "public/image/Screenshot-from-2024-03-09-13-15-35.png",
-    "public/image/Screenshot-from-2024-03-09-13-13-51.png",
-    "public/image/Screenshot-from-2024-03-09-12-48-06.png",
-    "public/image/Screenshot-from-2024-03-09-12-12-07.png",
-    "public/image/Screenshot-from-2024-03-09-11-08-10.png",
-    "public/image/Screenshot-from-2024-03-09-10-57-53.png",
     "content/데브옵스(DevOps)/Git/index.md",
     "content/데브옵스(DevOps)/index.md",
+    "content/데브옵스(DevOps)/Git",
+    "content/데브옵스(DevOps)",
     "content/독서/index.md",
+    "content/독서",
     "content/언어(Language)/Java/카드 번호 맞추기 게임(up & down game).md",
     "content/언어(Language)/Java/영어 단어 테스트 프로그램.md",
     "content/언어(Language)/Java/index.md",
@@ -177,15 +172,29 @@
     "content/언어(Language)/C/간단한 미로 찾기 게임.md",
     "content/언어(Language)/C/index.md",
     "content/언어(Language)/index.md",
+    "content/언어(Language)/Java",
+    "content/언어(Language)/C",
+    "content/언어(Language)",
     "content/Projects.md",
     "content/프레임워크(Framework)/index.md",
-    "content/IT일기/리눅스 배포판 사용기/리눅스 관련 지식/데비안 명령어.md",
+    "content/프레임워크(Framework)",
+    "content/googlef805084d837064c8.html",
+    "content/image/Screenshot from 2024-03-09 13-26-13.png",
+    "content/image/Screenshot from 2024-03-09 13-26-06.png",
+    "content/image/Screenshot from 2024-03-09 13-25-00.png",
+    "content/image/Screenshot from 2024-03-09 13-16-45.png",
+    "content/image/Screenshot from 2024-03-09 13-15-35.png",
+    "content/image/Big-O-time-complexity-chart-based-feature-selection-a-Big-O-complexity-chart-b-Time.ppm",
+    "content/image",
     "content/IT일기/리눅스 배포판 사용기/리눅스 관련 지식/리눅스 패키지 의존성(Linux Package Dependencies).md",
+    "content/IT일기/리눅스 배포판 사용기/리눅스 관련 지식/데비안 명령어.md",
     "content/IT일기/리눅스 배포판 사용기/리눅스 관련 지식/index.md",
     "content/IT일기/회고/index.md",
     "content/IT일기/블로그 생성기/index.md",
-    "content/IT일기/블로그 생성기/Part 3. 블로글 설정 및 디자인.md",
     "content/IT일기/블로그 생성기/Part 4. 블로그 검색 노출.md",
-    "content/IT일기/블로그 생성기/Part 2. 블로그 생성.md"
+    "content/IT일기/블로그 생성기/Part 3. 블로글 설정 및 디자인.md",
+    "content/IT일기/블로그 생성기/Part 2. 블로그 생성.md",
+    "content/IT일기/블로그 생성기/Part 1. 블로그 서비스 선택.md",
+    "content/IT일기/블로그 생성기/Part 0. 블로그 운영 이유.md"
   ]
 }

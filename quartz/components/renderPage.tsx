@@ -2,6 +2,7 @@ import { render } from "preact-render-to-string"
 import { QuartzComponent, QuartzComponentProps } from "./types"
 import HeaderConstructor from "./Header"
 import BodyConstructor from "./Body"
+import AboutMeConstructor from "./AboutMe"
 import { JSResourceToScriptElement, StaticResources } from "../util/resources"
 import { clone, FullSlug, RelativeURL, joinSegments, normalizeHastElement, simplifySlug } from "../util/path"
 import { visit } from "unist-util-visit"
@@ -217,6 +218,8 @@ export function renderPage(
     </div>
   )
 
+  const AboutMeComponent = AboutMeConstructor()
+
   const lang = componentData.frontmatter?.lang ?? cfg.locale?.split("-")[0] ?? "en"
   // @ts-ignore
   const doc = (
@@ -235,20 +238,21 @@ export function renderPage(
         <div className="center">
           <div className="page-header">
             <div className="popover-hint">
-              {beforeBody.map((BodyComponent) => (
-                <div>
-                  {BodyComponent.displayName}
-                  <BodyComponent {...componentData} />
-                </div>
-              ))}
-              {/*{simplifySlug(slug) === "/" ?*/}
-              {/*  null :*/}
-              {/*  beforeBody.map((BodyComponent) => (*/}
+              {/*{beforeBody.map((BodyComponent) => (*/}
               {/*  <div>*/}
               {/*    {BodyComponent.displayName}*/}
-              {/*    <BodyComponent {...componentData}/>*/}
+              {/*    <BodyComponent {...componentData} />*/}
               {/*  </div>*/}
               {/*))}*/}
+
+              {simplifySlug(slug) === "About-Me" ?
+                <AboutMeComponent {...componentData} /> :
+                beforeBody.map((BodyComponent) => (
+                  <div>
+                    {BodyComponent.displayName}
+                    <BodyComponent {...componentData} />
+                  </div>
+                ))}
             </div>
           </div>
           <Content {...componentData} />
